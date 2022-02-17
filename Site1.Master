@@ -33,7 +33,7 @@
                     <a href="#">Home</a>
                 </li>
                 <li>
-                    <a href="#">Products</a>
+                    <a href="Products.aspx">Products</a>
                 </li>
                 <li>
                     <a href="#">Order</a>
@@ -46,7 +46,7 @@
                 <a href="#">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
-                <a>
+                <a href="#">
                     <i class="fa-solid fa-circle-user"></i>
                 </a>
             </div>
