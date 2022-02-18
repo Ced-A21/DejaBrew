@@ -30,23 +30,23 @@
             </div>
             <ul class="nav-links">
                 <li>
-                    <a href="#">Home</a>
+                    <a href="Home.aspx">Home</a>
                 </li>
                 <li>
                     <a href="Products.aspx">Products</a>
                 </li>
                 <li>
-                    <a href="#">Order</a>
+                    <a href="Order.aspx">Order</a>
                 </li>
                 <li>
-                    <a href="#">About Us</a>
+                    <a href="AboutUs.aspx">About Us</a>
                 </li>
             </ul>
             <div class="sign-in">
-                <a href="#">
+                 <a href="Cart.aspx">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
-                <a href="#">
+                <a href="Account.aspx">
                     <i class="fa-solid fa-circle-user"></i>
                 </a>
             </div>
