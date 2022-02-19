@@ -13,17 +13,17 @@
     <%--Placeholder until I decide to make a better category selection. Feel free to add/edit css/html stuffs.--%>
     <div style="margin: 50px">
             <div>
-        <a href="#"><img class="div-images" src="images/placeholder.png" />
+        <a href="/ProductList.aspx?ctg=ColdDrinks"><img class="div-images" src="images/placeholder.png" />
             Cold drinks
         </a>
     </div>
     <div>
-        <a href="#"><img class="div-images" src="images/placeholder.png" />
+        <a href="/ProductList.aspx?ctg=HotDrinks"><img class="div-images" src="images/placeholder.png" />
             Hot drinks
         </a>
     </div>
     <div>
-        <a href="#"><img class="div-images" src="images/placeholder.png" />
+        <a href="/ProductList.aspx?ctg=Pastries"><img class="div-images" src="images/placeholder.png" />
             Pastries
         </a>
     </div>
