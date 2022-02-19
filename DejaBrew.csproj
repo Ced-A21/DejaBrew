@@ -43,10 +43,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -73,6 +79,17 @@
     <Content Include="DB_Styles.css" />
     <Content Include="Home.aspx" />
     <Content Include="Images\placeholder.png" />
+    <Content Include="Models\DejaBrewModels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DejaBrewModels.Context.cs</LastGenOutput>
+      <DependentUpon>DejaBrewModels.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DejaBrewModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DejaBrewModels.edmx</DependentUpon>
+      <LastGenOutput>DejaBrewModels.cs</LastGenOutput>
+    </Content>
+    <Content Include="ProductList.aspx" />
     <Content Include="Products.aspx" />
     <Content Include="Web.config" />
     <Content Include="AboutUs.aspx" />
@@ -90,6 +107,43 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CartItem.cs">
+      <DependentUpon>DejaBrewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>DejaBrewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DejaBrewModels.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DejaBrewModels.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DejaBrewModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DejaBrewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DejaBrewModels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DejaBrewModels.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>DejaBrewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShoppingCart.cs">
+      <DependentUpon>DejaBrewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>DejaBrewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductList.aspx.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductList.aspx.designer.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
@@ -137,6 +191,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site1.Master" />
+    <EntityDeploy Include="Models\DejaBrewModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DejaBrewModels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DejaBrewModels.edmx.diagram">
+      <DependentUpon>DejaBrewModels.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -145,8 +206,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
