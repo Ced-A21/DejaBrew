@@ -21,13 +21,14 @@ nav {
     color: #FF8303;
     flex-direction: row;
     font-size: 25px;
+    padding-left: 15vh;
 }
 
 .nav-links {
     display: flex;
     justify-content: space-around;
     width: 40%;
-    margin-left: 35vh;
+    margin-left: 20vh
 }
 
 .nav-links a {
@@ -35,7 +36,7 @@ nav {
     text-decoration: none;
     letter-spacing: 3px;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 11px;
     font-family: 'Ultra', sans-serif;
     text-transform: uppercase;
     padding: 20px;
@@ -53,10 +54,10 @@ nav {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    padding-left: 30vh;
+    padding-left: 15vh;
 }
 
-.sign-in a {
+.sign-in a, .cart a{
     color: black;
 }
 
@@ -70,4 +71,4 @@ i{
 
 }
 
-/*----------------------------Master page CSS*--------------------------/
+    /*----------------------------Master page CSS*--------------------------/
