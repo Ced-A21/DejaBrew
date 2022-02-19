@@ -71,4 +71,47 @@ i{
 
 }
 
+.AboutUsimg {
+    background-image: url("Images/coffee2.jpg");
+    min-height: 80vh;
+    background-size: 1920px 960px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top:20vh;
+}
+.AboutHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-family: 'Redressed', cursive;
+    padding-left: 40vh;
+    padding-right: 40vh;
+    color: #1b1a17;
+/*    color:white;*/
+}
+.head1{
+    padding:30px;
+}
+.head2 {
+    font-size: 2.5rem;
+    color: #1b1a17;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Redressed', cursive;
+    padding-left: 40vh;
+    padding-right: 40vh;
+}
+.head3 {
+    font-size: 1.5rem;
+    color: #1b1a17;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Redressed', cursive;
+    padding-left: 40vh;
+    padding-right: 40vh;
+}
+
     /*----------------------------Master page CSS*--------------------------/
