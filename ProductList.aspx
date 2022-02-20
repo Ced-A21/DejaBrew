@@ -21,7 +21,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="div-center">
+    <div class="div-center" style="min-height:80vh;">
         <asp:Label ID="CategoryLabel" runat="server" Text="Label" CssClass="label-header" />
         <asp:ListView ID="ProductListView" runat="server" DataSourceID="DejaBrewDb" RepeatColumns="3" GroupItemCount="3">
             <LayoutTemplate>
