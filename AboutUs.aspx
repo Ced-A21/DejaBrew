@@ -17,21 +17,36 @@
             </div>
         </div>
     </div>   
-    <main class="MainAbt">
-        <div class="hrtext">
-          <div class="hrbefore">
+    <div class="hrtext">
+        <div class="hrbefore">
             <hr>
-          </div>
-          <div class="hrcontent">
-            <h2>Deja Brew</h2>
-          </div>
-          <div class="hrafter">
-            <hr>
-          </div>
         </div>
+        <div class="hrcontent">
+            <h2>Deja Brew</h2>
+        </div>
+        <div class="hrafter">
+            <hr>
+        </div>
+    </div>
+    <main class="MainAbt">
         <br />
-        <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        </p>
+        <div class="AboutContent">
+            <div class="AboutPar">
+                <h2 class ="AboutBottomHeader">ABOUT US</h2>
+                <p>
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                </p>
+                <p>
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                </p>
+            </div>
+            <img class="AboutCoffee" src="Images/about-img.png" />
+        </div>
     </main>
 </asp:Content>
