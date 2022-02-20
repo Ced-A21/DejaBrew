@@ -125,15 +125,69 @@ i{
 .centeredDiv {
     margin: auto;
 }
-.MainAbt{
-    padding-top:10vh;
-    min-height:80vh;
+.MainAbt {
+    min-height: 80vh;
+    padding-bottom: 100px;
+    padding-left: 150px;
+    padding-right: 150px;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.MainAbt p {
+    text-indent: 50px;
+    padding-left: 200px;
+    padding-right: 200px;
 }
 hr {
     margin-top: 10px;
     margin-bottom: 10px;
     border: 2px solid grey;
-    width: 110%;
 }
 
+.hrtext {
+    padding-top:40px;
+    display: flex;
+    align-items: center;
+}
+
+.hrbefore, .hrafter {
+    flex: auto;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.hrcontent {
+    font-family: 'Ultra', sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    background: -webkit-linear-gradient( #b82e1f, #f2c17d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.AboutBottomHeader {
+    font-size: 2.5rem;
+    font-family: 'Ultra', sans-serif;
+    padding-bottom: 40px;
+    align-self: center;
+}
+.AboutContent{
+    display:flex;
+    flex-direction:row;
+    padding-top:50px;
+}
+.AboutCoffee{
+    width:800px;
+    height:600px;
+
+}
+.AboutPar{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
     /*----------------------------Master page CSS*--------------------------/
