@@ -1,19 +1,28 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ProductList.aspx.cs" Inherits="DejaBrew.ProductList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .center {
+        .div-center {
             margin: auto;
+            margin-top: 40px;
             width: 60%;
-            border: 5px solid #FFFF00;
             padding: 10px;
         }
         .center-tb {
             text-align: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        .label-header {
+            margin-bottom: 30px;
+            font-size: x-large;
+            font-weight: bolder;
+            display: block;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="center">
+    <div class="div-center">
+        <asp:Label ID="CategoryLabel" runat="server" Text="Label" CssClass="label-header" />
         <asp:ListView ID="ProductListView" runat="server" DataSourceID="DejaBrewDb" RepeatColumns="3" GroupItemCount="3">
             <LayoutTemplate>
                 <table width="100%">
@@ -31,7 +40,7 @@
                 <td class="center-tb">
                     <img src="images/placeholder.png" height="100" width="100"/>
                     <br />
-                    <span><asp:Label ID="ProductNameLabel" runat="server" Text='<%# Eval("ProductName") %>' /></span>
+                    <span style="font-weight: bold"><asp:Label ID="ProductNameLabel" runat="server" Text='<%# Eval("ProductName") %>' /></span>
                     <br />
                     <span><asp:Label ID="ProductPriceLabel" runat="server" Text='<%# String.Format("{0:C}", Eval("ProductPrice") ) %>' /></span>
                     <br />
@@ -43,7 +52,7 @@
                 </tr>
             </GroupSeparatorTemplate>
         </asp:ListView>
-        <asp:SqlDataSource ID="DejaBrewDb" runat="server" ConnectionString="<%$ ConnectionStrings:DejaBrewDb %>" SelectCommand="SELECT [ProductName], [ProductPrice] FROM [Products] WHERE REPLACE([ProductCategory], ' ', '') = @Category">
+        <asp:SqlDataSource ID="DejaBrewDb" runat="server" ConnectionString="<%$ ConnectionStrings:DejaBrewDb %>" SelectCommand="SELECT [ProductName], [ProductPrice] FROM [Products] WHERE REPLACE([ProductCategory], ' ', '') = @Category AND [ProductStatus] = 'Enabled'">
             <SelectParameters><asp:QueryStringParameter runat="server" name="Category" type="string" querystringfield="ctg" /></SelectParameters>
         </asp:SqlDataSource>
     </div>
