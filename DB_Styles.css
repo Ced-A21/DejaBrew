@@ -12,23 +12,23 @@ nav {
     padding-top: 10px;
     min-height: 8vh;
     display: flex;
-    padding-left: 17vh;
     font-family: 'Ultra', serif;
     align-items: center;
+    justify-content: center;
 }
 
 .logo {
     color: #FF8303;
     flex-direction: row;
     font-size: 25px;
-    padding-left: 15vh;
+    padding-left: 10vh;
 }
 
 .nav-links {
     display: flex;
     justify-content: space-around;
     width: 40%;
-    margin-left: 20vh
+    padding-left: 10vh
 }
 
 .nav-links a {
@@ -54,7 +54,7 @@ nav {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    padding-left: 15vh;
+    padding-left: 10vh;
 }
 
 .sign-in a, .cart a{
@@ -72,12 +72,15 @@ i{
 }
 
 .AboutUsimg {
-    background-image: url("Images/coffee2.jpg");
-    min-height: 80vh;
-    background-size: 1920px 960px;
+    background-image: url(Images/coffee2.jpg);
+    min-height: 100vh;
+    background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
     background-attachment: fixed;
-    padding-top:20vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 20vh;
 }
 .AboutHeader {
     display: flex;
@@ -112,6 +115,25 @@ i{
     font-family: 'Redressed', cursive;
     padding-left: 40vh;
     padding-right: 40vh;
+}
+
+.Logopic{
+    width:280px;
+    height:83px;
+}
+
+.centeredDiv {
+    margin: auto;
+}
+.MainAbt{
+    padding-top:10vh;
+    min-height:80vh;
+}
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid grey;
+    width: 110%;
 }
 
     /*----------------------------Master page CSS*--------------------------/

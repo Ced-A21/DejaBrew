@@ -16,16 +16,18 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <div class="centeredDiv">
+        <form id="form1" runat="server">
         <nav class="nav-container">
             <div class="logo">
                 <header>
-                    <h1 class ="Deja">
+                    <%--<h1 class ="Deja">
                         DEJA
                     </h1>
                     <h2 class ="Brew">
                         BREW
-                    </h2>
+                    </h2>--%>
+                    <img class="Logopic" src="Images/DB_Logo_1.png" />
                 </header>
             </div>
             <ul class="nav-links">
@@ -56,5 +58,6 @@
             </asp:ContentPlaceHolder>
         </div>
     </form>
+    </div>
 </body>
 </html>
