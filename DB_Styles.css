@@ -16,6 +16,12 @@ nav {
     align-items: center;
     justify-content: center;
 }
+.navigation {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color:white;
+}
 
 .logo {
     color: #FF8303;
@@ -190,4 +196,55 @@ hr {
     align-items:center;
     flex-direction:column;
 }
+.divFooter {
+    min-height: 20vh;
+    background-color: #1b1a17;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    
+}
+.divFooter a{
+    color: white;
+    text-decoration: none;
+}
+footer{
+    display:flex;
+    flex-direction:column;
+}
+
+footer li{
+    list-style:none;
+}
+.FooterP p{
+    color:white;
+    font-size:1.5rem;
+}
+.FooterP{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.SocialMedia i{
+    color:white;
+}
+.InfoUL, .SocialMedia, .Terms{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+}
+.Terms span{
+    color:white;
+}
+.InfoUL li{
+    color:white;
+    font-size:1.5rem;
+}
+.MainHomeDiv{
+    min-height:100vh;
+}
+
     /*----------------------------Master page CSS*--------------------------/

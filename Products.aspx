@@ -31,7 +31,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%--Placeholder until I decide to make a better category selection. Feel free to add/edit css/html stuffs.--%>
-    <div class="div-container" style="text-align:left; padding-left: 45%;">
+    <div class="div-container" style="text-align:left; padding-left: 45%; min-height:80vh;">
         <div class="div-button">
             <a href="/ProductList.aspx?ctg=ColdDrinks">
                 <img class="div-images" src="images/placeholder.png" />

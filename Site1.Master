@@ -18,15 +18,10 @@
 <body>
     <div class="centeredDiv">
         <form id="form1" runat="server">
-        <nav class="nav-container">
+        <div class="navigation">
+            <nav class="nav-container">
             <div class="logo">
                 <header>
-                    <%--<h1 class ="Deja">
-                        DEJA
-                    </h1>
-                    <h2 class ="Brew">
-                        BREW
-                    </h2>--%>
                     <img class="Logopic" src="Images/DB_Logo_1.png" />
                 </header>
             </div>
@@ -53,11 +48,47 @@
                 </a>
             </div>
         </nav>
+        </div>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>
+    <div class="FooterDiv">
+        <div class="divFooter">
+        <footer>
+            <ul class="SocialMedia">
+                <li>
+                    <a href="#">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="InfoUL">
+                <li>
+                    <a href="#">Info</a><span> • </span><a href="#">Support</a><span> • </span><a href="#">Marketing</a>
+                </li>
+            </ul>
+            <ul class="Terms">
+                <li>
+                    <a href="#">Terms of use</a><span> • </span><a href ="#">Privacy Policy</a>
+                </li>
+            </ul>
+        </footer>
+        <div class="FooterP">
+            <p>@2022 Copyright: DejaBrew Coffee Co.</p>
+        </div>
+        </div>
     </div>
 </body>
 </html>
