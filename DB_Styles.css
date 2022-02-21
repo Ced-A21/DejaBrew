@@ -243,8 +243,83 @@ footer li{
     color:white;
     font-size:1.5rem;
 }
-.MainHomeDiv{
-    min-height:100vh;
+.MainHomeDiv {
+    justify-content: center;
+    display: flex;
+    padding-bottom: 60px;
+    box-sizing: border-box;
+    flex-grow: 1;
+    /*    background-image: url(Images/coffee1.jpg);
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-size:inherit;*/
 }
+.HomeDiv{
+    min-height:60vh;
+}
+.HomePic {
+    width: 100%;
+}
+.WelcomeText{
+    position:absolute;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    padding-top: 20vh;
+    font-family: 'Ultra', sans-serif;
+}
+.HomeHeader{
+    font-size:10rem;
+}
+.HomeH3 {
+    font-size: 5rem;
+    background: -webkit-linear-gradient( #b82e1f, #f2c17d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.h2Head{
+    padding-top:40px;
+}
+.buttons{
+    display:flex;
+    flex-direction:row;
+    padding-top:40px;
+    align-items:center;
+    justify-content:center;
+    
 
+}
+.ProductButton{
+    padding-right:80px;
+}
+.AboutButton, .ProductButton {
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    /*    background: -webkit-linear-gradient(#b82e1f, #f2c17d);*/
+    background: #1B1A17;
+    /*    border-radius: 50px;*/
+    border: none;
+    transition: all 0.5s ease;
+    padding: 1rem;
+    width:40%;
+}
+.ProductButton {
+    margin-right: 50px;
+    background: #A35709;
+}
+.ProductButton:hover{
+    background:#FF8303
+
+}
+.AboutButton {
+    background: #1B1A17;
+}
+.AboutButton:hover{
+    background:black;
+}
+.aboutbutton, .Homeabout{
+    color:white;
+    text-decoration:none;
+}
     /*----------------------------Master page CSS*--------------------------/
