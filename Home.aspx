@@ -10,8 +10,8 @@
                     <div><header class="HomeHeader">Deja Brew</header></div>
                     <div><h2 class="h2Head">Serving only the best coffee in the city</h2></div>
                     <div class="buttons">
-                        <div onclick="location.href='Products.aspx'" class="ProductButton" >
-                            <a class="Homeabout" href="Products.aspx">Our Products</a>
+                        <div onclick="location.href='ProductCategory.aspx'" class="ProductButton" >
+                            <a class="Homeabout" href="ProductCategory.aspx">Our Products</a>
                         </div>
                         <div class="AboutButton" onclick="location.href='AboutUs.aspx'">
                             <a class="aboutbutton" href="AboutUs.aspx">About Deja Brew</a>
@@ -22,7 +22,14 @@
             </div>
         </main>
         <section>
-
+            <div class="DelCart">
+                <div class="CoffeeshpDiv" onlick="location.href='Order.aspx'">
+                    <img class="CoffeeShp" src="Images/coffeeshop.jpg" />
+                </div>
+                <div class="CoffeeshpDiv1" onclick="location.href='Cart.aspx'">
+                    <img class="CoffeeShp1" src="Images/coffeeshop1.jpg" />
+                </div>             
+            </div>
         </section>
     </div>
 </asp:Content>

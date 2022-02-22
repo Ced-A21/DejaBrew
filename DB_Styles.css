@@ -296,9 +296,8 @@ footer li{
     text-align: center;
     color: white;
     cursor: pointer;
-    /*    background: -webkit-linear-gradient(#b82e1f, #f2c17d);*/
     background: #1B1A17;
-    /*    border-radius: 50px;*/
+    border-radius: 80px;
     border: none;
     transition: all 0.5s ease;
     padding: 1rem;
@@ -321,5 +320,34 @@ footer li{
 .aboutbutton, .Homeabout{
     color:white;
     text-decoration:none;
+}
+
+.DelCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding-bottom: 100px;
+}
+.CoffeeshpDiv {
+    display: flex;
+    justify-content: center;
+    margin-left: 150px;
+    position:relative;
+}
+.CoffeeshpDiv1{
+    display:flex;
+    justify-content:center;
+    position:relative;
+}
+.CoffeeShp1, .CoffeeShp{
+    transition:all 8s ease-out;
+}
+.CoffeeShp1:hover, .CoffeeShp:hover {
+    transform:scale(1.2);
+    cursor:pointer;
+}
+.CoffeeShp1 {
+    width: 60%;
 }
     /*----------------------------Master page CSS*--------------------------/
