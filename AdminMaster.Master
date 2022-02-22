@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="DejaBrew.AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link rel="stylesheet" type="text/css" href="DB_Styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,200&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@1,700&family=Oswald&family=Pacifico&family=Redressed&family=Roboto+Serif&family=Ultra&display=swap" rel="stylesheet">
+    <title>Admin: DejaBrew</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="centeredDiv">
+        <div class="navigation">
+            <nav class="nav-container">
+                <div class="logo">
+                    <header>
+                        <img class="Logopic" src="Images/DB_Logo_1.png" />
+                    </header>
+                </div>
+                <ul class="nav-links">
+                    <li>
+                        <a href="AdminInventory.aspx">Inventory Manager</a>
+                    </li>
+                    <li>
+                        <a href="AdminProduct.aspx">Product Manager</a>
+                    </li>
+                    <li>
+                        <a href="AdminOrder.aspx">Order Manager</a>
+                    </li>
+                    <li>
+                        <a href="AdminCollection.aspx">Collection Manager</a>
+                    </li>
+                    <li>
+                        <a href="AdminDelivery.aspx">Delivery Manager</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
