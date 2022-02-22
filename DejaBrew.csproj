@@ -71,6 +71,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminProduct.aspx" />
     <Content Include="App_Data\DejaBrew.mdf" />
     <Content Include="App_Data\DejaBrew_log.ldf">
       <DependentUpon>DejaBrew.mdf</DependentUpon>
@@ -91,7 +92,7 @@
       <LastGenOutput>DejaBrewModels.cs</LastGenOutput>
     </Content>
     <Content Include="ProductList.aspx" />
-    <Content Include="Products.aspx" />
+    <Content Include="ProductCategory.aspx" />
     <Content Include="Signup.aspx" />
     <Content Include="Web.config" />
     <Content Include="AboutUs.aspx" />
@@ -100,6 +101,20 @@
     <Content Include="Account.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminMaster.Master.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminMaster.Master.designer.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProduct.aspx.cs">
+      <DependentUpon>AdminProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminProduct.aspx.designer.cs">
+      <DependentUpon>AdminProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -154,12 +169,12 @@
     <Compile Include="ProductList.aspx.designer.cs">
       <DependentUpon>ProductList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Products.aspx.cs">
-      <DependentUpon>Products.aspx</DependentUpon>
+    <Compile Include="ProductCategory.aspx.cs">
+      <DependentUpon>ProductCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Products.aspx.designer.cs">
-      <DependentUpon>Products.aspx</DependentUpon>
+    <Compile Include="ProductCategory.aspx.designer.cs">
+      <DependentUpon>ProductCategory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Signup.aspx.cs">
@@ -214,6 +229,7 @@
     <Content Include="Models\DejaBrewModels.edmx.diagram">
       <DependentUpon>DejaBrewModels.edmx</DependentUpon>
     </Content>
+    <Content Include="AdminMaster.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

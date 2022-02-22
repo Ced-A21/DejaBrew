@@ -30,7 +30,7 @@
                     <a href="Home.aspx">Home</a>
                 </li>
                 <li>
-                    <a href="Products.aspx">Products</a>
+                    <a href="ProductCategory.aspx">Products</a>
                 </li>
                 <li>
                     <a href="Order.aspx">Order</a>
