@@ -99,6 +99,7 @@
     <Content Include="Cart.aspx" />
     <Content Include="Order.aspx" />
     <Content Include="Account.aspx" />
+    <Content Include="Checkout.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminMaster.Master.cs">
@@ -218,6 +219,13 @@
     </Compile>
     <Compile Include="Account.aspx.designer.cs">
       <DependentUpon>Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
