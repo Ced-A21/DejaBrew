@@ -54,6 +54,7 @@
             </asp:ContentPlaceHolder>
         </div>
     </form>
+    </div>
     <div class="FooterDiv">
         <div class="divFooter">
         <footer>

@@ -350,4 +350,163 @@ footer li{
 .CoffeeShp1 {
     width: 60%;
 }
-    /*----------------------------Master page CSS*--------------------------/
+
+
+/*---------------------------------------Checkout Page CSS---------------------------------------------*/
+
+.CheckoutCenterDiv {
+    margin: auto;
+    background: #f1f1f1;
+    min-height:80vh;
+}
+
+.Checkoutnav{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    background-color:white;
+}
+.Checkoutpic {
+    padding-right: 68vh;
+}
+.checkoutreturn {
+    padding-right: 20vh;
+}
+.clickHome:hover {
+    color: #FF8303;
+    text-decoration:underline;
+    cursor:pointer;
+}
+.CheckoutHeader{
+    min-height:2vh;
+    font-family: 'Poppins', sans-serif;
+    font-size:2rem;
+    font-weight:bold;
+    display:flex;
+    justify-content:center;
+    padding-top:20px;
+}
+.DivContainers{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+.Shipping{
+    background:black;
+    min-height:4vh;
+}
+.Summary{
+    background:#f1f1f1;
+    min-height:4vh;
+}
+.SummaryTitle {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    margin-left: 20px;
+    padding: 5px;
+}
+.ShippingTitle {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    margin-left: 20px;
+    padding: 5px;
+}
+.LeftContainer {
+    min-width: 50vh;
+    background: white;
+    min-height: 70vh;
+    padding-bottom: 30px;
+}
+.innerShipping {
+    padding: 40px;
+    min-height: 70vh;
+    min-width: 30vh;
+    font-family: 'Poppins', sans-serif;
+    font-weight:bold;
+}
+.innerSummary {
+    padding: 40px;
+    min-width: 30vh;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.NoRec{
+    display:flex;
+    justify-content:center;
+    font-family: 'Poppins', sans-serif;
+    font-weight:bold;
+}
+.LabelFname, .LName ,.EmailLabel, .MobileLabel ,.AddressLabel ,.MunicipalityLabel ,.ProvLBL ,.ZipLbl{
+    padding-bottom:10px;
+}
+.txtName, .txtLName, .EmailTXT, .MobileTxt, .AddressTxt, .MuniTxt, .ProvTxt, .ZipTXT{
+    width: 600px;
+    border: none;
+    background: #f1f1f1;
+    padding: 16px;
+}
+.txtName, .txtLName, .EmailTXT, .MobileTxt{
+    pointer-events:none;
+}
+
+.AddressTxt:focus, .MuniTxt:focus, .ProvTxt:focus, .ZipTXT:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.rightContainer {
+    padding-left: 30px;
+    min-width: 30vh;
+    background: #f1f1f1;
+    min-height: 35vh;
+    padding-bottom: 30px;
+}
+.Summary {
+    background: black;
+    min-height: 4vh;
+}
+.innerSummary {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.Total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.Btns{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    padding-top:30px;
+}
+.CheckoutBtn {
+    padding: 20px;
+    background-color: #FF8303;
+    color: white;
+    border: none;
+    transition: 0.5s ease-in;
+}
+.CancelBtn {
+    padding: 20px;
+    width:140px;
+    background-color: red;
+    color: white;
+    border: none;
+    transition: 0.5s ease-in;
+    opacity:1;
+}
+.CheckoutBtn:hover {
+    background-color:orange;
+    cursor:pointer;
+}
+
+.CancelBtn:hover {
+    opacity:0.5;
+    cursor:pointer;
+}
