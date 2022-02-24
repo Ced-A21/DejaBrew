@@ -76,6 +76,7 @@
     <Content Include="App_Data\DejaBrew_log.ldf">
       <DependentUpon>DejaBrew.mdf</DependentUpon>
     </Content>
+    <Content Include="Css\Signup_Style.css" />
     <Content Include="Global.asax" />
     <Content Include="DB_Styles.css" />
     <Content Include="Home.aspx" />
