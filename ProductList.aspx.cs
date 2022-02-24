@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 
 namespace DejaBrew
 {
@@ -28,6 +29,15 @@ namespace DejaBrew
             else if (currCategory == "Frappuccino")
             {
                 CategoryLabel.Text = "Frappuccino";
+            }
+        }
+
+        protected void AddToCart(object sender, ListViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Cart")
+            {
+                CartActions shoppingCart = new CartActions();
+                shoppingCart.AddToCart(Convert.ToInt32(e.CommandArgument));
             }
         }
     }

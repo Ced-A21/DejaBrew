@@ -23,7 +23,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="div-center" style="min-height:80vh;">
         <asp:Label ID="CategoryLabel" runat="server" Text="Label" CssClass="label-header" />
-        <asp:ListView ID="ProductListView" runat="server" DataSourceID="DejaBrewDb" RepeatColumns="3" GroupItemCount="3">
+        <asp:ListView ID="ProductListView" runat="server" DataSourceID="DejaBrewDb" RepeatColumns="3" GroupItemCount="3" OnItemCommand="AddToCart">
             <LayoutTemplate>
                 <table width="100%">
                     <tr ID="groupPlaceholder" runat="server">
@@ -44,6 +44,7 @@
                     <br />
                     <span><asp:Label ID="ProductPriceLabel" runat="server" Text='<%# String.Format("{0:C}", Eval("ProductPrice") ) %>' /></span>
                     <br />
+                    <asp:LinkButton CommandName="Cart" CommandArgument='<%# Eval("Id") %>' runat="server" ID="BtnAddCart">Add to Cart</asp:LinkButton>
                 </td>
             </ItemTemplate>
             <GroupSeparatorTemplate>
@@ -52,7 +53,7 @@
                 </tr>
             </GroupSeparatorTemplate>
         </asp:ListView>
-        <asp:SqlDataSource ID="DejaBrewDb" runat="server" ConnectionString="<%$ ConnectionStrings:DejaBrewDb %>" SelectCommand="SELECT [ProductName], [ProductPrice] FROM [Products] WHERE REPLACE([ProductCategory], ' ', '') = @Category AND [ProductStatus] = 'Enabled'">
+        <asp:SqlDataSource ID="DejaBrewDb" runat="server" ConnectionString="<%$ ConnectionStrings:DejaBrewDb %>" SelectCommand="SELECT [ProductName], [ProductPrice], [Id] FROM [Products] WHERE REPLACE([ProductCategory], ' ', '') = @Category AND [ProductStatus] = 'Enabled'">
             <SelectParameters><asp:QueryStringParameter runat="server" name="Category" type="string" querystringfield="ctg" /></SelectParameters>
         </asp:SqlDataSource>
     </div>
