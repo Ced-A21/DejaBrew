@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="CartDiv" style="min-height:80vh;">
-        <asp:GridView ID="GridCart" runat="server" CellPadding="3" Width="100%" ForeColor="#333333" HorizontalAlign="Justify">
+        <asp:GridView ID="GridCart" runat="server" CellPadding="3" Width="100%" ForeColor="#333333" HorizontalAlign="Justify" CssClass="NoRec">
             <EmptyDataTemplate>No Record Available</EmptyDataTemplate>  
             <AlternatingRowStyle BackColor="White" />
             <Columns>

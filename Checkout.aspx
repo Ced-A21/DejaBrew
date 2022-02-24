@@ -39,11 +39,78 @@
                     <header class="ShippingTitle"> SHIPPING</header>
                 </div>
                 <div class="innerShipping">
-                    Hello World
+                    <div class="LabelFname">
+                        <asp:Label ID="Label1" runat="server" Text="First Name:"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox1" runat="server" CssClass="txtName"></asp:TextBox>
+                    </div>
+                    <div class="LName">
+                        <asp:Label ID="Label2" runat="server" Text="Last Name:"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox2" runat="server" CssClass="txtLName"></asp:TextBox>
+                    </div>
+                    <div class="EmailLabel">
+                        <asp:Label ID="Label3" runat="server" Text="E-mail:"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox3" runat="server" CssClass="EmailTXT"></asp:TextBox>
+                    </div>
+                    <div class="MobileLabel">
+                        <asp:Label ID="Label4" runat="server" Text="Mobile Number:"></asp:Label>
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox4" runat="server" CssClass="MobileTxt"></asp:TextBox>
+                    </div>
+                    <div class="AddressLabel">
+                        <asp:Label ID="Label5" runat="server" Text="Address Line:"></asp:Label>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox5" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox5" runat="server" CssClass="AddressTxt"></asp:TextBox>
+                    </div>
+                    <div class="MunicipalityLabel">
+                        <asp:Label ID="Label6" runat="server" Text="Municipality:"></asp:Label>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox6" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox6" runat="server" CssClass="MuniTxt"></asp:TextBox>
+                    </div>
+                    <div class="ProvLBL">
+                        <asp:Label ID="Label7" runat="server" Text="Province:"></asp:Label>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox8" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox7" runat="server" CssClass="ProvTxt"></asp:TextBox>
+                    </div>
+                    <div class="ZipLbl">                       
+                        <asp:Label ID="Label8" runat="server" Text="Zip Code:"></asp:Label>                    
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox8" ErrorMessage="RequiredFieldValidator" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox8" ErrorMessage="RangeValidator" ForeColor="Red" MaximumValue="9810" MinimumValue="1051">Please enter a valid zip code</asp:RangeValidator>
+                    </div>
+                    <div>
+                        <asp:TextBox ID="TextBox8" runat="server" CssClass="ZipTXT"></asp:TextBox>
+                    </div>
                 </div>
             </div>
-            <div>
+            <div class="rightContainer">
+                <div class="Summary">
+                    <header class="SummaryTitle">SUMMARY</header>
+                </div>
+                <div class="innerSummary">
+                    <div class="Table">
 
+                    </div>
+                    <div class="Total">
+                        <asp:Label  ID="Label9" runat="server" Text="Total: "></asp:Label>
+                        <asp:Label  ID="Label10" runat="server" Text="₱ 0.00"></asp:Label>
+                    </div>
+                    <div class="Btns">
+                        <asp:Button ID="Button1" runat="server" CssClass="CheckoutBtn" Text="Checkout" PostBackUrl="~/Home.aspx"/>
+                        <asp:Button ID="Button2" runat="server" CssClass="CancelBtn" Text="Cancel" PostBackUrl="~/Cart.aspx" />
+                    </div>
+                </div>
             </div>
         </div>
     </form>
