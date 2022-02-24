@@ -21,16 +21,18 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
+    <div style="margin: 10px;">
         Welcome to the Product Manager!
         <br />
         <%--Create New Product--%>
         <asp:Button ID="BtnCreateNewProd" runat="server" Text="Create New Product" OnClick="BtnShowDiv_Click" CausesValidation="False" />
         <div class="hide" id="DivCreateNewProd" runat="server">
             <label class="form-label">Product Name </label>
-            <span><asp:TextBox ID="TBProdName" runat="server" ValidationGroup="VLDNewProd"></asp:TextBox></span>
-            <asp:RequiredFieldValidator ID="VLDProdName" runat="server" ErrorMessage="Product Name is required" Display="Dynamic" ValidationGroup="VLDNewProd" ControlToValidate="TBProdName"></asp:RequiredFieldValidator>
-
+            <span>
+                <asp:TextBox ID="TBProdName" runat="server" ValidationGroup="VLDNewProd"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="VLDProdName" runat="server" ErrorMessage="Product Name is required" Display="Dynamic" ValidationGroup="VLDNewProd" ControlToValidate="TBProdName" ForeColor="Red"></asp:RequiredFieldValidator>
+            </span>
+            
             <label class="form-label">Product Category </label>
             <span><asp:DropDownList ID="DropNewProdCateg" runat="server">
                 <asp:ListItem>Hot Drinks</asp:ListItem>
@@ -40,23 +42,27 @@
             </asp:DropDownList></span>
 
             <label class="form-label">Product Price </label>
-            <span><asp:TextBox ID="TBNewProdPrice" runat="server" ValidationGroup="VLDNewProd"></asp:TextBox></span>
-            <asp:RequiredFieldValidator ID="VLDProdPrice" runat="server" ErrorMessage="Product Price is required" ValidationGroup="VLDNewProd" Display="Dynamic"></asp:RequiredFieldValidator>
-            <asp:RangeValidator ID="VLDProdPrice1" runat="server" ErrorMessage="RangeValidator" ControlToValidate="TBNewProdPrice" Display="Dynamic" Type="Currency" ValidationGroup="VLDNewProd" MaximumValue="10000" MinimumValue="50"></asp:RangeValidator>
+            <span>
+                <asp:TextBox ID="TBNewProdPrice" runat="server" ValidationGroup="VLDNewProd"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="VLDProdPrice" runat="server" ErrorMessage="Product Price is required" ValidationGroup="VLDNewProd" Display="Dynamic" ControlToValidate="TBNewProdPrice" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RangeValidator ID="VLDProdPrice1" runat="server" ErrorMessage="5 to 10,000 only" ControlToValidate="TBNewProdPrice" Display="Dynamic" Type="Currency" ValidationGroup="VLDNewProd" MaximumValue="10000" MinimumValue="50" ForeColor="Red"></asp:RangeValidator>
+            </span>
 
             <label class="form-label">Product Stock </label>
-            <span><asp:TextBox ID="TBNewProdStock" runat="server" TextMode="Number" min="1" max="500" ValidationGroup="VLDNewProd"></asp:TextBox></span>
-            <asp:RequiredFieldValidator ID="VLDProdStock" runat="server" ErrorMessage="Product Stock is required" ValidationGroup="VLDNewProd" Display="Dynamic"></asp:RequiredFieldValidator>
+            <span>
+                <asp:TextBox ID="TBNewProdStock" runat="server" TextMode="Number" min="1" max="500" ValidationGroup="VLDNewProd"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="VLDProdStock" runat="server" ErrorMessage="Product Stock is required" ValidationGroup="VLDNewProd" Display="Dynamic" ControlToValidate="TBNewProdStock" ForeColor="Red"></asp:RequiredFieldValidator>
+            </span>
 
-            <asp:Button ID="BtnSaveNewProd" runat="server" Text="Save New Product" ValidationGroup="VLDNewProd" />
-            <asp:Button ID="BtnClearNewProd" runat="server" Text="Clear Product Information" />
+            <asp:Button ID="BtnSaveNewProd" runat="server" Text="Save New Product" ValidationGroup="VLDNewProd" OnClick="BtnSaveNewProd_Click" />
+            <asp:Button ID="BtnClearNewProd" runat="server" Text="Clear Product Information" OnClick="BtnClearNewProd_Click" />
         </div>
 
         <%--Update Product--%>
         <asp:Button ID="BtnUpdateNewProd" runat="server" Text="Update Product Information" OnClick="BtnShowDiv_Click" CausesValidation="False" ValidationGroup="VLDUpdateProd" />
         <div class="hide" id="DivUpdateProd" runat="server">
             <label>Select the product that you want to edit</label>
-            <asp:GridView ID="GridUpProdList" runat="server" DataSourceID="DejaBrewDb" AllowSorting="True" CellPadding="3" Width="100%" ForeColor="#333333" HorizontalAlign="Justify">
+            <asp:GridView ID="GridUpProdList" runat="server" DataSourceID="DejaBrewDb" AllowSorting="True" CellPadding="3" Width="100%" ForeColor="#333333" HorizontalAlign="Justify" OnSelectedIndexChanged="GridUpProdList_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
@@ -75,8 +81,10 @@
             <asp:SqlDataSource ID="DejaBrewDb" runat="server" ConnectionString="<%$ ConnectionStrings:DejaBrewDb %>" SelectCommand="SELECT * FROM [Products]"></asp:SqlDataSource>
 
             <label class="form-label">Product Name </label>
-            <span><asp:TextBox ID="TBUpProdName" runat="server" ValidationGroup="VLDUpdateProd"></asp:TextBox></span>
-            <asp:RequiredFieldValidator ID="VLDUpProdName" runat="server" ErrorMessage="Product Name is required" Display="Dynamic" ValidationGroup="VLDUpdateProd" ControlToValidate="TBUpProdName"></asp:RequiredFieldValidator>
+            <span>
+                <asp:TextBox ID="TBUpProdName" runat="server" ValidationGroup="VLDUpdateProd"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="VLDUpProdName" runat="server" ErrorMessage="Product Name is required" Display="Dynamic" ValidationGroup="VLDUpdateProd" ControlToValidate="TBUpProdName" ForeColor="Red"></asp:RequiredFieldValidator>
+            </span>
 
             <label class="form-label">Product Category </label>
             <span><asp:DropDownList ID="DropProdCateg" runat="server">
@@ -87,17 +95,27 @@
             </asp:DropDownList></span>
 
             <label class="form-label">Product Price </label>
-            <span><asp:TextBox ID="TBUpProdPrice" runat="server"></asp:TextBox></span>
-            <asp:RequiredFieldValidator ID="VLDUpProdPrice" runat="server" ErrorMessage="Product Price is required" Display="Dynamic" ValidationGroup="VLDUpdateProd" ControlToValidate="TBUpProdPrice"></asp:RequiredFieldValidator>
-            <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="RangeValidator" ControlToValidate="TBUpProdPrice" Display="Dynamic" Type="Currency" ValidationGroup="VLDUpdateProd" MaximumValue="10000" MinimumValue="50"></asp:RangeValidator>
+            <span>
+                <asp:TextBox ID="TBUpProdPrice" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="VLDUpProdPrice" runat="server" ErrorMessage="Product Price is required" Display="Dynamic" ValidationGroup="VLDUpdateProd" ControlToValidate="TBUpProdPrice" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RangeValidator ID="VLDUpProdPrice1" runat="server" ErrorMessage="5 to 10,000 only" ControlToValidate="TBUpProdPrice" Display="Dynamic" Type="Currency" ValidationGroup="VLDUpdateProd" MaximumValue="10000" MinimumValue="5" ForeColor="Red"></asp:RangeValidator>
+            </span>
 
-            <asp:Button ID="BtnUpdateProd" runat="server" Text="Update Product" />
-            <asp:Button ID="BtnClearUpProd" runat="server" Text="Clear Product Information" CausesValidation="False" />
+            <label class="form-label">Product Status </label>
+            <span>
+                <asp:RadioButtonList ID="ProdStat" runat="server">
+                    <asp:ListItem Value="Enabled">Enabled</asp:ListItem>
+                    <asp:ListItem Value="Disabled">Disabled</asp:ListItem>
+                </asp:RadioButtonList>
+            </span>
+
+            <asp:Button ID="BtnUpdateProd" runat="server" Text="Update Product Information" ValidationGroup="VLDUpdateProd" OnClick="BtnUpdateProd_Click" />
+            <asp:Button ID="BtnClearUpProd" runat="server" Text="Reset Product Information" CausesValidation="False" OnClick="BtnClearUpProd_Click" />
         </div>
 
         <%--Change Product Status--%>
-        <asp:Button ID="BtnChangeProdStatus" runat="server" Text="Change Product Status" OnClick="BtnShowDiv_Click" />
-        <div class="hide" id="DivChangeProdStat" runat="server">
+<%--        <asp:Button ID="BtnChangeProdStatus" runat="server" Text="Change Product Status" OnClick="BtnShowDiv_Click" />
+        <div class="show" id="DivChangeProdStat" runat="server">
             <label>Select the product that you want to edit</label>
             <asp:GridView ID="GridChangeProdStat" runat="server" DataSourceID="DejaBrewDb" AllowSorting="True" CellPadding="3" Width="100%" ForeColor="#333333" HorizontalAlign="Justify">
                 <AlternatingRowStyle BackColor="White" />
@@ -123,8 +141,8 @@
                 <asp:RadioButton ID="RBDisabledStat" runat="server" GroupName="ProdStat" Text="Disabled" />
             </span>
 
-            <asp:Button ID="BtnSaveStatus" runat="server" Text="Save Status" />
+            <asp:Button ID="BtnSaveStatus" runat="server" Text="Save Status" OnClick="BtnSaveStatus_Click" />
             <asp:Button ID="BtnClearStatus" runat="server" Text="Clear" />
-        </div>
+        </div>--%>
     </div>
 </asp:Content>
