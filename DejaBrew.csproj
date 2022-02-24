@@ -82,16 +82,6 @@
     <Content Include="Home.aspx" />
     <Content Include="Images\placeholder.png" />
     <Content Include="Login.aspx" />
-    <Content Include="Models\DejaBrewModels.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DejaBrewModels.Context.cs</LastGenOutput>
-      <DependentUpon>DejaBrewModels.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\DejaBrewModels.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DejaBrewModels.edmx</DependentUpon>
-      <LastGenOutput>DejaBrewModels.cs</LastGenOutput>
-    </Content>
     <Content Include="ProductList.aspx" />
     <Content Include="ProductCategory.aspx" />
     <Content Include="Signup.aspx" />
@@ -117,6 +107,7 @@
     <Compile Include="AdminProduct.aspx.designer.cs">
       <DependentUpon>AdminProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CartActions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -133,36 +124,6 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CartItem.cs">
-      <DependentUpon>DejaBrewModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Customer.cs">
-      <DependentUpon>DejaBrewModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DejaBrewModels.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DejaBrewModels.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DejaBrewModels.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DejaBrewModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DejaBrewModels.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DejaBrewModels.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Product.cs">
-      <DependentUpon>DejaBrewModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ShoppingCart.cs">
-      <DependentUpon>DejaBrewModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>DejaBrewModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductList.aspx.cs">
       <DependentUpon>ProductList.aspx</DependentUpon>
@@ -231,13 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site1.Master" />
-    <EntityDeploy Include="Models\DejaBrewModels.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DejaBrewModels.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DejaBrewModels.edmx.diagram">
-      <DependentUpon>DejaBrewModels.edmx</DependentUpon>
-    </Content>
     <Content Include="AdminMaster.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -247,7 +201,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
