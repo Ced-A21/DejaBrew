@@ -14,21 +14,18 @@ namespace DejaBrew
         {
 
             CartActions shoppingCart = new CartActions();
-            GridCart.DataSource = shoppingCart.GetCartItems();
             if (!IsPostBack)
             {
+                if (shoppingCart.GetCartItems().HasRows)
+                {
+                    DivCheckoutBtn.Attributes["class"] = "show";
+                }
+                else
+                {
+                    DivCheckoutBtn.Attributes["class"] = "hide";
+                }
                 GridCart.DataSource = shoppingCart.GetCartItems();
                 GridCart.DataBind();
-
-            }
-
-            if (shoppingCart.GetCartItems().HasRows)
-            {
-                DivCheckoutBtn.Attributes["class"] = "show";
-            }
-            else
-            {
-                DivCheckoutBtn.Attributes["class"] = "hide";
             }
         }
 
@@ -37,6 +34,14 @@ namespace DejaBrew
             CartActions shoppingCart = new CartActions();
             int cartItemID = Convert.ToInt32(GridCart.DataKeys[e.RowIndex].Values[0]);
             shoppingCart.RemoveCartItem(cartItemID);
+            if (shoppingCart.GetCartItems().HasRows)
+            {
+                DivCheckoutBtn.Attributes["class"] = "show";
+            }
+            else
+            {
+                DivCheckoutBtn.Attributes["class"] = "hide";
+            }
             GridCart.DataSource = shoppingCart.GetCartItems();
             GridCart.DataBind();
         }
