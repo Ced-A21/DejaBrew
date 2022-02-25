@@ -38,7 +38,7 @@
              </GroupTemplate>
             <ItemTemplate>
                 <td class="center-tb">
-                    <img src="images/placeholder.png" height="100" width="100"/>
+                    <img src='<%# Eval("ProductImage") %>' height="100" width="100"/>
                     <br />
                     <span style="font-weight: bold"><asp:Label ID="ProductNameLabel" runat="server" Text='<%# Eval("ProductName") %>' /></span>
                     <br />
@@ -53,7 +53,7 @@
                 </tr>
             </GroupSeparatorTemplate>
         </asp:ListView>
-        <asp:SqlDataSource ID="DejaBrewDb" runat="server" ConnectionString="<%$ ConnectionStrings:DejaBrewDb %>" SelectCommand="SELECT [ProductName], [ProductPrice], [Id] FROM [Products] WHERE REPLACE([ProductCategory], ' ', '') = @Category AND [ProductStatus] = 'Enabled'">
+        <asp:SqlDataSource ID="DejaBrewDb" runat="server" ConnectionString="<%$ ConnectionStrings:DejaBrewDb %>" SelectCommand="SELECT [ProductName], [ProductPrice], [Id], [ProductImage] FROM [Products] WHERE REPLACE([ProductCategory], ' ', '') = @Category AND [ProductStatus] = 'Enabled'">
             <SelectParameters><asp:QueryStringParameter runat="server" name="Category" type="string" querystringfield="ctg" /></SelectParameters>
         </asp:SqlDataSource>
     </div>
