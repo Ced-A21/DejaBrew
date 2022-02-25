@@ -103,9 +103,9 @@
 
                         <asp:GridView CssClass="CheckoutGrid" ID="GridCheckout" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" GridLines="None">
                             <Columns>
-                                <asp:boundfield datafield="ItemQty" headertext="Item Quantity"/>
-                                <asp:boundfield datafield="ProductName" headertext="Product Name"/>
-                                <asp:boundfield datafield="ItemPrice" headertext="Price" DataFormatString="{0:F2}"/>
+                                <asp:boundfield datafield="ItemQty" headertext="Item Quantity" ItemStyle-CssClass="QuantityPadding"/>
+                                <asp:boundfield datafield="ProductName" headertext="Product Name" ItemStyle-CssClass="ProdPadding"/>
+                                <asp:boundfield datafield="ItemPrice" headertext="Price" DataFormatString="{0:F2}" ItemStyle-CssClass="ItemPadding"/>
                             </Columns>
                         </asp:GridView>
 
