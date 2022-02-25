@@ -513,11 +513,12 @@ footer li{
 
 .hide{
     display:none;
+    padding-top:30px;
 }
-.show{
-    display:flex;
-    justify-content:center;
-
+.show {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
 }
 .CheckOut {
     padding: 20px;
@@ -533,12 +534,14 @@ footer li{
     background-color: #FF8303;
 }
 
-.ItemPadding, .ProdPadding , .QuantityPadding{
-    padding-top:30px;
-    padding-right:30px;
-    padding-bottom:20px;
+.ItemPadding, .ProdPadding, .QuantityPadding {
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+
 }
-.QuantityPadding{
-    display:flex;
-    justify-content:center;
+.QuantityPadding {
+    display: flex;
+    justify-content: center;
 }
+.
