@@ -9,7 +9,6 @@ body {
 }
 
 nav {
-    padding-top: 10px;
     min-height: 8vh;
     display: flex;
     font-family: 'Ultra', serif;
@@ -61,6 +60,7 @@ nav {
     justify-content: center;
     flex-direction: row;
     padding-left: 10vh;
+    align-items:center;
 }
 
 .sign-in a, .cart a{
@@ -226,6 +226,7 @@ footer li{
     display:flex;
     justify-content:center;
     align-items:center;
+    padding-bottom:15px;
 }
 .SocialMedia i{
     color:white;
@@ -241,7 +242,7 @@ footer li{
 }
 .InfoUL li{
     color:white;
-    font-size:1.5rem;
+    font-size:1rem;
 }
 .MainHomeDiv {
     justify-content: center;
@@ -544,4 +545,31 @@ footer li{
     display: flex;
     justify-content: center;
 }
-.
+
+.AccountIcon {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3px;
+    background: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: all 0.5s ease;
+    width: 20vh;
+    border-radius: 80px;
+}
+.AccountIcon:hover{
+    color:#FF8303
+}
+.AccountIcon a {
+    color: white;
+    display:flex;
+    align-items:center;
+    transition: all 0.5s ease;
+}
+.AccountLabel{
+    padding:5px;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+}
