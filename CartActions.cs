@@ -25,7 +25,6 @@ namespace DejaBrew
             findPrice.Parameters.AddWithValue("@ParamProdID", id);
             decimal? price = findPrice.ExecuteScalar() as decimal?;
 
-            // Check if cartItem does not have rows/is null
             if (!cartItem.HasRows)
             {
                 // Then add cart item
@@ -57,11 +56,6 @@ namespace DejaBrew
             SqlCommand getCartItem = new SqlCommand("SELECT Products.ProductName, ItemQty, ItemPrice FROM CartItems INNER JOIN Products ON CartItems.ProductID = Products.Id WHERE CartID = 1", conn); // Test, use cart table when card is tied to an account
             var cartItems = getCartItem.ExecuteReader();
             return cartItems;
-        }
-
-        public void DeleteCartItem(int id)
-        {
-
         }
     }
 }
