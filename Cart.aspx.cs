@@ -12,11 +12,23 @@ namespace DejaBrew
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            CartActions shoppingCart = new CartActions();
+            GridCart.DataSource = shoppingCart.GetCartItems();
             if (!IsPostBack)
             {
-                CartActions shoppingCart = new CartActions();
                 GridCart.DataSource = shoppingCart.GetCartItems();
                 GridCart.DataBind();
+
+            }
+
+            if (shoppingCart.GetCartItems().HasRows)
+            {
+                DivCheckoutBtn.Attributes["class"] = "show";
+            }
+            else
+            {
+                DivCheckoutBtn.Attributes["class"] = "hide";
             }
         }
 

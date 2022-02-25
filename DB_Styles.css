@@ -1,5 +1,5 @@
 ﻿* {
-    margin: 0px;
+    margin: 3px 0px 0px 0px;
     padding: 0px;
     box-sizing: border-box;
 }
@@ -494,7 +494,7 @@ footer li{
 }
 .CancelBtn {
     padding: 20px;
-    width:140px;
+    width:100px;
     background-color: red;
     color: white;
     border: none;
@@ -509,4 +509,30 @@ footer li{
 .CancelBtn:hover {
     opacity:0.5;
     cursor:pointer;
+}
+
+.hide{
+    display:none;
+}
+.show{
+    display:flex;
+    justify-content:center;
+
+}
+.CheckOut {
+    padding: 20px;
+    border: none;
+    color: white;
+    background-color: darkorange;
+    opacity:1;
+    cursor: pointer;
+    transition: 0.5s ease-out;
+}
+
+.CheckOut:hover {
+    background-color: #FF8303;
+}
+
+.CheckoutGrid{
+    border:none;
 }
