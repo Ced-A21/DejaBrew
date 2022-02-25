@@ -14,11 +14,8 @@ namespace DejaBrew
             CartActions shoppingCart = new CartActions();
             GridCheckout.DataSource = shoppingCart.GetCartItems();
             GridCheckout.DataBind();
+            Label10.Text = String.Format("{0:C}", shoppingCart.GetCartTotal());
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
