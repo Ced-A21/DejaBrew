@@ -71,6 +71,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminCollection.aspx" />
     <Content Include="AdminProduct.aspx" />
     <Content Include="App_Data\DejaBrew.mdf" />
     <Content Include="App_Data\DejaBrew_log.ldf">
@@ -93,6 +94,13 @@
     <Content Include="Checkout.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminCollection.aspx.cs">
+      <DependentUpon>AdminCollection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminCollection.aspx.designer.cs">
+      <DependentUpon>AdminCollection.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminMaster.Master.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
