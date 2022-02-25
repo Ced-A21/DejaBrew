@@ -101,7 +101,7 @@
                 <div class="innerSummary">
                     <div class="itemsAdded">
 
-                        <asp:GridView CssClass="CheckoutGrid" ID="GridCheckout" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" GridLines="None">
+                        <asp:GridView CssClass="CheckoutGrid" ID="GridCheckout" runat="server" AutoGenerateColumns="False" GridLines="None">
                             <Columns>
                                 <asp:boundfield datafield="ItemQty" headertext="Item Quantity"/>
                                 <asp:boundfield datafield="ProductName" headertext="Product Name"/>

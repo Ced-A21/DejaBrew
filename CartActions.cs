@@ -68,7 +68,16 @@ namespace DejaBrew
             updateQty.ExecuteNonQuery();
             conn.Close();
         }
-        
+        public decimal GetCartTotal()
+        {
+            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+            conn.Open();
+            SqlCommand getTotal = new SqlCommand("SELECT SUM(ItemPrice) FROM CartItems WHERE CartID = @ParamCartID", conn);
+            getTotal.Parameters.AddWithValue("@ParamCartID", 1);
+            decimal? total = decimal.Zero;
+            total = getTotal.ExecuteScalar() as decimal?;
+            return total ?? decimal.Zero;
+        }
         public SqlDataReader GetCartItems()
         {
             cartId = 1; // Test, replace once cart is tied to an account
