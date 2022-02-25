@@ -11,6 +11,13 @@ namespace DejaBrew
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            CartActions shoppingCart = new CartActions();
+            GridCheckout.DataSource = shoppingCart.GetCartItems();
+            GridCheckout.DataBind();
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

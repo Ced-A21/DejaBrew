@@ -18,7 +18,7 @@
         <form id="form1" runat="server">
         <div class="navgtn">
             <nav class="Checkoutnav">
-                <div class="checkoutreturn" onclick="location.href='Home.aspx'">
+                <div class="checkoutreturn" onclick="location.href='Cart.aspx'">
                     <h1 class="clickHome">
                         < Home
                     </h1>
@@ -99,7 +99,15 @@
                     <header class="SummaryTitle">SUMMARY</header>
                 </div>
                 <div class="innerSummary">
-                    <div class="Table">
+                    <div class="itemsAdded">
+
+                        <asp:GridView CssClass="CheckoutGrid" ID="GridCheckout" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" GridLines="None">
+                            <Columns>
+                                <asp:boundfield datafield="ItemQty" headertext="Item Quantity"/>
+                                <asp:boundfield datafield="ProductName" headertext="Product Name"/>
+                                <asp:boundfield datafield="ItemPrice" headertext="Price" DataFormatString="{0:F2}"/>
+                            </Columns>
+                        </asp:GridView>
 
                     </div>
                     <div class="Total">
