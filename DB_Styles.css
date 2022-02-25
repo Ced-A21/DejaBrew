@@ -533,6 +533,12 @@ footer li{
     background-color: #FF8303;
 }
 
-.CheckoutGrid{
-    border:none;
+.ItemPadding, .ProdPadding , .QuantityPadding{
+    padding-top:30px;
+    padding-right:30px;
+    padding-bottom:20px;
+}
+.QuantityPadding{
+    display:flex;
+    justify-content:center;
 }
