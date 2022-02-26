@@ -555,7 +555,7 @@ footer li{
     cursor: pointer;
     border: none;
     transition: all 0.5s ease;
-    width: 20vh;
+    width: 23vh;
     border-radius: 80px;
 }
 .AccountIcon:hover{

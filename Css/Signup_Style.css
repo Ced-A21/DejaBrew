@@ -69,7 +69,16 @@
 .button_case {
     margin-left: 455px;
 }
-.button{
-    width:90px;
-    margin-left:10px;
+.button {
+    width: 90px;
+    height: 25px;
+    margin-left: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px grey;
+    color: white;
+    background-color: #FF8303;
+    font-weight: bold;
+}
+.button:hover{
+    background-color:orange;
 }
