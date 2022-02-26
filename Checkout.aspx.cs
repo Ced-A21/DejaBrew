@@ -11,11 +11,20 @@ namespace DejaBrew
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            CartActions shoppingCart = new CartActions();
-            GridCheckout.DataSource = shoppingCart.GetCartItems();
-            GridCheckout.DataBind();
-            Label10.Text = String.Format("{0:C}", shoppingCart.GetCartTotal());
+            if (!IsPostBack)
+            {
+                CartActions checkout = new CartActions();
+                GridCheckout.DataSource = checkout.GetCartItems();
+                GridCheckout.DataBind();
+                Label10.Text = String.Format("{0:C}", checkout.GetCartTotal());
+            }
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            CartActions checkout = new CartActions();
+            checkout.CheckoutCart();
+            Response.Redirect("~/Home.aspx");
+        }
     }
 }

@@ -115,7 +115,7 @@
                         <asp:Label  ID="Label10" runat="server" Text="₱ 0.00"></asp:Label>
                     </div>
                     <div class="Btns">
-                        <asp:Button ID="Button1" runat="server" CssClass="CheckoutBtn" Text="Checkout" PostBackUrl="~/Home.aspx"/>
+                        <asp:Button ID="Button1" runat="server" CssClass="CheckoutBtn" Text="Checkout" OnClick="Button1_Click"/>
                         <asp:Button ID="Button2" runat="server" CssClass="CancelBtn" Text="Cancel" PostBackUrl="~/Cart.aspx" />
                     </div>
                 </div>

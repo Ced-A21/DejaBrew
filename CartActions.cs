@@ -101,5 +101,25 @@ namespace DejaBrew
             var cartItems = getCartItem.ExecuteReader();
             return cartItems;
         }
+
+        public void CheckoutCart()
+        {
+            cartId = 1;
+            DateTime myDateTime = DateTime.Now;
+            string completionDate = myDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
+
+            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+            conn.Open();
+            SqlCommand checkoutCart = new SqlCommand("INSERT INTO Orders(CartID, OrderTotal, CompletionDate)" +
+                    "SELECT Id, CartTotal, @ParamCompletion FROM ShoppingCarts WHERE Id = @ParamCartID;" +
+                    "INSERT INTO OrderItems(Id, ProductID, OrderID, ItemQty, ItemPrice)" +
+                    "SELECT Id, ProductID, CartID, ItemQty, ItemPrice FROM CartItems WHERE CartID = @ParamCartID;" +
+                    "DELETE CartItems WHERE CartID = @ParamCartID;" +
+                    "DELETE ShoppingCarts WHERE Id = @ParamCartID", conn);
+            checkoutCart.Parameters.AddWithValue("@ParamCartID", cartId);
+            checkoutCart.Parameters.AddWithValue("@ParamCompletion", completionDate);
+            checkoutCart.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }
