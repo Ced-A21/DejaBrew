@@ -43,7 +43,7 @@
                  <a href="Cart.aspx">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
-                <div class="AccountIcon" onclick="location.href='Account.aspx'">
+                <div class="AccountIcon" onclick="location.href='Login.aspx'">
                     <i class="fa-solid fa-circle-user"></i>
                     <p class="AccountLabel">Account</p>
                 </div>
