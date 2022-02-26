@@ -155,11 +155,11 @@
             <td class="auto-style8">
                 Date</td>
             <td class="auto-style9">
-                <asp:TextBox ID="TextBox10" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="TextBox10" runat="server" Font-Size="Medium" Width="200px" TextMode="Date"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp; to&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="TextBox11" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="TextBox11" runat="server" Font-Size="Medium" Width="200px" TextMode="Date"></asp:TextBox>
 &nbsp;
-                <asp:Button ID="Button6" runat="server"  Font-Bold="True" ForeColor="White" Height="27px" Text="GET" Width="100px" class="TotalColBtn"/>
+                <asp:Button ID="Button6" runat="server"  Font-Bold="True" ForeColor="White" Height="27px" Text="GET" Width="100px" class="TotalColBtn" OnClick="Button6_Click"/>
             &nbsp;&nbsp;
             </td>
         </tr>
@@ -169,7 +169,7 @@
             <td>
                 <asp:TextBox ID="TextBox12" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button7" runat="server"  Font-Bold="True" ForeColor="White" Height="27px" Text="TOTAL" Width="100px" class="TotalColBtn"/>
+                <asp:Button ID="Button7" runat="server"  Font-Bold="True" ForeColor="White" Height="27px" Text="TOTAL" Width="100px" class="TotalColBtn" OnClick="Button7_Click"/>
             </td>
         </tr>
         <tr>
@@ -186,8 +186,9 @@
                 <asp:Panel ID="Panel1" runat="server">
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource2" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                         <Columns>
+                            <asp:CommandField ShowSelectButton="True" />
                             <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
-                            <asp:BoundField DataField="OrderTotal" HeaderText="OrderTotal" SortExpression="OrderTotal" />
+                            <asp:BoundField DataField="OrderTotal" HeaderText="OrderTotal" SortExpression="OrderTotal" DataFormatString="{0:F2}" />
                             <asp:BoundField DataField="CompletionDate" HeaderText="CompletionDate" SortExpression="CompletionDate" DataFormatString="{0:MM/dd/yyyy}" />
                             <asp:BoundField DataField="DeliveryDate" HeaderText="DeliveryDate" SortExpression="DeliveryDate" DataFormatString="{0:MM/dd/yyyy}"/>
                                 <asp:BoundField DataField="DeliveryStatus" HeaderText="DeliveryStatus" SortExpression="DeliveryStatus" />
@@ -222,7 +223,11 @@
         </tr>
         <tr>
             <td colspan="2">
-                &nbsp;</td>
+                <asp:Panel ID="Panel3" runat="server">
+                    <asp:GridView ID="GridView3" runat="server">
+                    </asp:GridView>
+                </asp:Panel>
+            </td>
         </tr>
         <tr>
             <td colspan="2">
