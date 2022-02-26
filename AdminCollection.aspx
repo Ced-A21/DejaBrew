@@ -155,11 +155,11 @@
             <td class="auto-style8">
                 Date</td>
             <td class="auto-style9">
-                <asp:TextBox ID="TextBox10" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="TextBox10" runat="server" Font-Size="Medium" Width="200px" TextMode="Date"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp; to&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="TextBox11" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="TextBox11" runat="server" Font-Size="Medium" Width="200px" TextMode="Date"></asp:TextBox>
 &nbsp;
-                <asp:Button ID="Button6" runat="server"  Font-Bold="True" ForeColor="White" Height="27px" Text="GET" Width="100px" class="TotalColBtn"/>
+                <asp:Button ID="Button6" runat="server"  Font-Bold="True" ForeColor="White" Height="27px" Text="GET" Width="100px" class="TotalColBtn" OnClick="Button6_Click"/>
             &nbsp;&nbsp;
             </td>
         </tr>
@@ -169,7 +169,7 @@
             <td>
                 <asp:TextBox ID="TextBox12" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button7" runat="server"  Font-Bold="True" ForeColor="White" Height="27px" Text="TOTAL" Width="100px" class="TotalColBtn"/>
+                <asp:Button ID="Button7" runat="server"  Font-Bold="True" ForeColor="White" Height="27px" Text="TOTAL" Width="100px" class="TotalColBtn" OnClick="Button7_Click"/>
             </td>
         </tr>
         <tr>
@@ -223,7 +223,11 @@
         </tr>
         <tr>
             <td colspan="2">
-                &nbsp;</td>
+                <asp:Panel ID="Panel3" runat="server">
+                    <asp:GridView ID="GridView3" runat="server">
+                    </asp:GridView>
+                </asp:Panel>
+            </td>
         </tr>
         <tr>
             <td colspan="2">
