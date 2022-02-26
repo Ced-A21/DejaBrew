@@ -58,5 +58,18 @@ namespace DejaBrew
             GridCart.DataSource = shoppingCart.GetCartItems();
             GridCart.DataBind();
         }
+
+        protected void GridCart_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            CartActions shoppingCart = new CartActions();
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                TextBox tb = e.Row.FindControl("qty") as TextBox;
+                GridViewRow gvr = tb.NamingContainer as GridViewRow;
+                int cartItemID = Convert.ToInt32(GridCart.DataKeys[gvr.RowIndex].Values[0]);
+                tb.Attributes.Add("min", "1");
+                tb.Attributes.Add("max", shoppingCart.GetStock(cartItemID).ToString());
+            }
+        }
     }
 }

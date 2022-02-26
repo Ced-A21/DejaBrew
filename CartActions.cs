@@ -39,7 +39,9 @@ namespace DejaBrew
             else
             {
                 // Increment ItemQty and update product price
-                SqlCommand updateQty = new SqlCommand("UPDATE CartItems SET ItemQty = ItemQty + 1 WHERE Id = @ParamId; UPDATE CartItems SET ItemPrice = @ParamPrice * ItemQty WHERE Id = @ParamId", conn); // Separate with a semi-colon so the ItemQty update executes first
+                SqlCommand updateQty = new SqlCommand("UPDATE CartItems SET ItemQty = ItemQty + 1 WHERE Id = @ParamId;" +
+                    "UPDATE CartItems SET ItemPrice = @ParamPrice * ItemQty WHERE Id = @ParamId;", conn);
+                    /*"UPDATE Products SET ProductStock = ProductStock - 1 FROM Products INNER JOIN CartItems ON Products.Id = CartItems.ProductID", conn);*/ // Separate with a semi-colon so the ItemQty update executes first
                 updateQty.Parameters.AddWithValue("@ParamId", Convert.ToInt32(cartItem[0]));
                 updateQty.Parameters.AddWithValue("ParamPrice", price);
                 updateQty.ExecuteNonQuery();
@@ -61,7 +63,9 @@ namespace DejaBrew
         {
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             conn.Open();
-            SqlCommand updateQty = new SqlCommand("UPDATE CartItems SET ItemQty = @ParamSetQty WHERE Id = @ParamId; UPDATE CartItems SET ItemPrice = @ParamPrice * ItemQty WHERE Id = @ParamId", conn);
+            SqlCommand updateQty = new SqlCommand("UPDATE CartItems SET ItemQty = @ParamSetQty WHERE Id = @ParamId;" +
+                "UPDATE CartItems SET ItemPrice = @ParamPrice * ItemQty WHERE Id = @ParamId;", conn);
+                //"UPDATE Products SET ProductStock = ProductStock - @ParamSetQty FROM Products INNER JOIN CartItems ON Products.Id = CartItems.ProductID", conn);
             updateQty.Parameters.AddWithValue("@ParamSetQty", qty);
             updateQty.Parameters.AddWithValue("@ParamId", cartItemID);
             updateQty.Parameters.AddWithValue("@ParamPrice", price);
@@ -77,6 +81,15 @@ namespace DejaBrew
             decimal? total = decimal.Zero;
             total = getTotal.ExecuteScalar() as decimal?;
             return total ?? decimal.Zero;
+        }
+        public int GetStock(int cartItemID)
+        {
+            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
+            conn.Open();
+            SqlCommand getStock = new SqlCommand("SELECT ProductStock FROM Products JOIN CartItems ON Products.Id = CartItems.ProductID WHERE CartItems.Id = @ParamCartItemID", conn);
+            getStock.Parameters.AddWithValue("@ParamCartItemID", cartItemID);
+            int stock = (int)getStock.ExecuteScalar();
+            return stock;
         }
         public SqlDataReader GetCartItems()
         {
