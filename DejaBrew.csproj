@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminCollection.aspx" />
+    <Content Include="AdminDelivery.aspx" />
     <Content Include="AdminProduct.aspx" />
     <Content Include="App_Data\DejaBrew.mdf" />
     <Content Include="App_Data\DejaBrew_log.ldf">
@@ -101,6 +102,13 @@
     </Compile>
     <Compile Include="AdminCollection.aspx.designer.cs">
       <DependentUpon>AdminCollection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDelivery.aspx.cs">
+      <DependentUpon>AdminDelivery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminDelivery.aspx.designer.cs">
+      <DependentUpon>AdminDelivery.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminMaster.Master.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
