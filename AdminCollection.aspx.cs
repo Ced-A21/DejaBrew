@@ -63,19 +63,20 @@ namespace DejaBrew
             for (int i = 0; i < GridView1.Rows.Count; i++)
             {
 
-                TextBox9.Text = Convert.ToString(decimal.Parse(TextBox9.Text) + decimal.Parse(GridView1.Rows[i].Cells[1].Text.ToString()));
+                TextBox9.Text = Convert.ToString(decimal.Parse(TextBox9.Text) + decimal.Parse(GridView1.Rows[i].Cells[2].Text.ToString()));
 
             }
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //GridViewRow gr = GridView1.SelectedRow;
-            //TextBox2.Text = gr.Cells[1].Text;
-            //TextBox3.Text = gr.Cells[2].Text;
-            //TextBox4.Text = gr.Cells[3].Text;
-            //TextBox5.Text = gr.Cells[4].Text;
-            //TextBox6.Text = gr.Cells[5].Text;
+            GridViewRow gr = GridView1.SelectedRow;
+            TextBox2.Text = gr.Cells[1].Text;
+            TextBox3.Text = gr.Cells[2].Text;
+            TextBox4.Text = gr.Cells[3].Text;
+            TextBox5.Text = gr.Cells[4].Text;
+            TextBox6.Text = gr.Cells[5].Text;
+            TextBox7.Text = gr.Cells[6].Text;
         }
     }
 }
