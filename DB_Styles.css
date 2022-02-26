@@ -573,3 +573,76 @@ footer li{
     display:flex;
     align-items:center;
 }
+
+/*Product category css*/
+
+.ProductCatContainer{
+    margin:auto;
+    min-height:80vh;
+}
+
+.CategoryImgHeader{
+    background-image: url(Images/coffeeheader3.jpg);
+    min-height:80vh;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-attachment:fixed;
+    display:flex;
+    justify-content:center;
+    padding-top:30vh;
+}
+.ProductHeader {
+    display: flex;
+    justify-content: center;
+    font-size: 4rem;
+    font-family: 'Ultra', sans-serif;
+    background: -webkit-linear-gradient( #d7e1ec, #ffffff );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.Categories{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+}
+.HotandCold{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+
+.frappeandPastry{
+    display:flex;
+    justify-content:center;
+    flex-direction:row;
+}
+
+.ColdDrinks, .HotDrinks, .Pastry, .frappes{
+    transition:all 0.8s ease-out;
+}
+.ColdDrinks:hover, .HotDrinks:hover, .Pastry:hover, .frappes:hover {
+    transform:scale(1.1);
+    cursor:pointer;
+
+}
+.ColdDrinks {
+    width: 60vh;
+    padding-right: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.HotDrinks {
+    width: 60vh;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+.Pastry {
+    width: 60vh;
+    padding-bottom: 40px;
+    padding-right: 40px;
+}
+.frappes {
+    width: 60vh;
+    padding-bottom: 40px;
+}
