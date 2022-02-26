@@ -11,15 +11,26 @@
             height: 32px;
             width: 420px;
         }
+        .AdminColDiv{
+            display:flex;
+            justify-content:center;
+        }
+        .GetColBtn, .TotalColBtn{
+            background-color:black;
+        }
+        .GetColBtn:hover, .TotalColBtn:hover{
+            cursor:pointer;
+            Background-color:	#343434;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<div style="padding:15px">
+<div style="padding:15px;">
 
 
 
-    <table class="HomePic">
+    <table class="AdminColDiv">
         <tr>
             <td colspan="2" style="font-size: x-large; font-weight: bold; color: #000000">ORDER DETAILS</td>
         </tr>
@@ -28,7 +39,7 @@
             <td>
                 <asp:TextBox ID="TextBox1" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button1" runat="server" BackColor="Black" Font-Bold="True" ForeColor="White" Height="27px" Text="GET" Width="100px" />
+                <asp:Button ID="Button1" runat="server" Font-Bold="True" ForeColor="White" Height="27px" Text="GET" Width="100px" class="GetColBtn" />
             </td>
         </tr>
         <tr>
@@ -62,7 +73,7 @@
             <td>
                 <asp:TextBox ID="TextBox6" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button2" runat="server" BackColor="Black" Font-Bold="True" ForeColor="White" Height="27px" Text="TOTAL" Width="100px" />
+                <asp:Button ID="Button2" runat="server"  Font-Bold="True" ForeColor="White" Height="27px" Text="TOTAL" Width="100px" class="TotalColBtn"/>
             </td>
         </tr>
         <tr>
