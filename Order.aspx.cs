@@ -34,6 +34,7 @@ namespace DejaBrew
 
         private void BindGrid()
         {
+
             using (SqlCommand cmd = new SqlCommand("SELECT CartID as 'Order ID', OrderTotal, CompletionDate, DeliveryDate, DeliveryStatus FROM Orders"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())

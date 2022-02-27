@@ -561,7 +561,7 @@ footer li{
 .AccountIcon:hover{
     color:#FF8303
 }
-.AccountIcon a {
+.AccountIcon {
     color: white;
     display:flex;
     align-items:center;
