@@ -88,6 +88,7 @@
     <Content Include="DB_Styles.css" />
     <Content Include="Home.aspx" />
     <Content Include="Images\placeholder.png" />
+    <Content Include="index.html" />
     <Content Include="Login.aspx" />
     <Content Include="ProductList.aspx" />
     <Content Include="ProductCategory.aspx" />
