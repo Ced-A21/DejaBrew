@@ -43,10 +43,18 @@
 
 
             <div class="button-case">
-                <asp:Button class="button" ID="change_pass" runat="server" Text="Change Password" CausesValidation="False" />
+                <asp:Button class="button" ID="change_pass" runat="server" Text="Change Password" CausesValidation="False" OnClick="change_pass_Click" />
                 <asp:Button class="button" ID="change_save" runat="server" Text="Save Changes" OnClick="change_save_Click" />
             </div>
+
+            <div>
+                <asp:Button class="signout-btn" ID="Signout" runat="server" Text="Signout" CausesValidation="False" OnClick="Signout_Click" />
+                <asp:Button class="signout-btn" ID="Deactivate" runat="server" Text="Deactivate Account" CausesValidation="False" OnClick="Deactivate_Click" />
+            </div>
+
         </div>
-            
+           
+
+
     </div>
 </asp:Content>

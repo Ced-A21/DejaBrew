@@ -105,5 +105,26 @@ namespace DejaBrew
 
         }
 
+        protected void change_pass_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("UserPassword.aspx");
+        }
+
+        protected void Signout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("Home.aspx");
+        }
+
+        protected void Deactivate_Click(object sender, EventArgs e)
+        {
+            string UserID = (string)Session["userid"];
+
+            string cmd_text = $"delete from Users where UserID = '{UserID}'";
+            SqlCommand deactivate_cmd = new SqlCommand(cmd_text, con);
+            deactivate_cmd.ExecuteNonQuery();
+            Session.Abandon();
+            Response.Redirect("Home.aspx");
+        }
     }
 }
