@@ -67,40 +67,40 @@
         <tr>
             <td class="auto-style3">ID</td>
             <td class="auto-style1">
-                <asp:TextBox ID="TextBox2" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="TextBox2" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>
         <tr>
             <td class="auto-style2">Order Total</td>
             <td class="auto-style6">
-                <asp:TextBox ID="TextBox3" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="TextBox3" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="auto-style2">Completion Date</td>
             <td class="auto-style6">
-                <asp:TextBox ID="TextBox4" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="TextBox4" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="auto-style2">Delivery Date</td>
             <td class="auto-style6">
-                <asp:TextBox ID="TextBox5" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="TextBox5" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="auto-style2">
                 Delivery Status</td>
             <td class="auto-style6">
-                <asp:TextBox ID="TextBox6" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="TextBox6" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
         </tr>
         <tr>
             <td class="auto-style2">Cart ID</td>
             <td class="auto-style6">
-                <asp:TextBox ID="TextBox7" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="TextBox7" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -121,6 +121,7 @@
                         <asp:BoundField DataField="DeliveryStatus" HeaderText="DeliveryStatus" SortExpression="DeliveryStatus" />
                         <asp:BoundField DataField="CartID" HeaderText="CartID" SortExpression="CartID" />
                     </Columns>
+                    <HeaderStyle BackColor="Black" />
                 </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:DejaBrewDb %>" DeleteCommand="DELETE FROM [Orders] WHERE [Id] = @original_Id AND [OrderTotal] = @original_OrderTotal AND [CompletionDate] = @original_CompletionDate AND (([DeliveryDate] = @original_DeliveryDate) OR ([DeliveryDate] IS NULL AND @original_DeliveryDate IS NULL)) AND [DeliveryStatus] = @original_DeliveryStatus AND (([CartID] = @original_CartID) OR ([CartID] IS NULL AND @original_CartID IS NULL))" InsertCommand="INSERT INTO [Orders] ([OrderTotal], [CompletionDate], [DeliveryDate], [DeliveryStatus], [CartID]) VALUES (@OrderTotal, @CompletionDate, @DeliveryDate, @DeliveryStatus, @CartID)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Orders] ORDER BY [DeliveryStatus], [CompletionDate]" UpdateCommand="UPDATE [Orders] SET [OrderTotal] = @OrderTotal, [CompletionDate] = @CompletionDate, [DeliveryDate] = @DeliveryDate, [DeliveryStatus] = @DeliveryStatus, [CartID] = @CartID WHERE [Id] = @original_Id AND [OrderTotal] = @original_OrderTotal AND [CompletionDate] = @original_CompletionDate AND (([DeliveryDate] = @original_DeliveryDate) OR ([DeliveryDate] IS NULL AND @original_DeliveryDate IS NULL)) AND [DeliveryStatus] = @original_DeliveryStatus AND (([CartID] = @original_CartID) OR ([CartID] IS NULL AND @original_CartID IS NULL))">
                     <DeleteParameters>
@@ -201,6 +202,7 @@
             <td colspan="2" class="auto-style4">
                 <asp:Panel ID="Panel1" runat="server">
                     <asp:GridView ID="GridView1" runat="server">
+                        <HeaderStyle BackColor="#666666" ForeColor="White" />
                     </asp:GridView>
                 </asp:Panel>
             </td>
@@ -238,21 +240,9 @@
             <td colspan="2" class="auto-style4">
                 <asp:Panel ID="Panel2" runat="server">
                     <asp:GridView ID="GridView2" runat="server">
+                        <HeaderStyle BackColor="#666666" ForeColor="White" />
                     </asp:GridView>
                 </asp:Panel>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" class="auto-style4">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-                Date</td>
-            <td>
-                <asp:TextBox ID="TextBox16" runat="server" Font-Size="Medium" Width="200px" TextMode="date"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button15" runat="server" OnClick="Button15_Click" Text="GET" BackColor="Black" Font-Bold="True" ForeColor="White" Height="27px" Width="100px" />
             </td>
         </tr>
         <tr>
@@ -262,18 +252,6 @@
                 <asp:TextBox ID="TextBox17" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="Button16" runat="server" OnClick="Button16_Click" Text="TOTAL" BackColor="Black" Font-Bold="True" ForeColor="White" Height="27px" Width="100px" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <asp:Panel ID="Panel3" runat="server">
-                    <asp:GridView ID="GridView3" runat="server">
-                    </asp:GridView>
-                </asp:Panel>
             </td>
         </tr>
         <tr>
