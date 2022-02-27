@@ -40,9 +40,9 @@
                 </li>
             </ul>
             <div class="sign-in">
-                 <a href="Cart.aspx">
+                 <button id="BtnCart" runat="server" onserverclick="BtnCart_ServerClick">
                     <i class="fa-solid fa-cart-shopping"></i>
-                </a>
+                </button>
                 <div class="AccountIcon">
                     <asp:Button ID="account_btn" runat="server" OnClick="account_btn_Click" Text="Account"></asp:Button>
                 </div>

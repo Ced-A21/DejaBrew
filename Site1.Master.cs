@@ -29,5 +29,17 @@ namespace DejaBrew
         {
             Response.Redirect(account_func);
         }
+
+        protected void BtnCart_ServerClick(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(HttpContext.Current.Session["userid"] as string))
+            {
+                Response.Redirect("~/Cart.aspx");
+            }
+            else
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+        }
     }
 }

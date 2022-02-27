@@ -34,10 +34,14 @@ namespace DejaBrew
 
         protected void AddCartItem(object sender, ListViewCommandEventArgs e)
         {
-            if (e.CommandName == "Cart")
+            if (e.CommandName == "Cart" && !string.IsNullOrEmpty(HttpContext.Current.Session["userid"] as string))
             {
                 CartActions shoppingCart = new CartActions();
                 shoppingCart.AddCartItem(Convert.ToInt32(e.CommandArgument));
+            }
+            else
+            {
+                Response.Redirect("~/Login.aspx");
             }
         }
     }

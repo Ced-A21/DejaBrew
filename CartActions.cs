@@ -17,8 +17,8 @@ namespace DejaBrew
         public string GetCartID()
         {
             if (HttpContext.Current.Session[cartSessionID] == null)
-            {
-                if (!string.IsNullOrEmpty(HttpContext.Current.Session["userid"].ToString()))
+            { 
+                if (!string.IsNullOrEmpty(HttpContext.Current.Session["userid"] as string))
                 {
                     HttpContext.Current.Session[cartSessionID] = HttpContext.Current.Session["userid"];
                 }
@@ -31,8 +31,7 @@ namespace DejaBrew
 
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             conn.Open();
-            SqlCommand getCartItem = new SqlCommand("SELECT Id, ProductID, CartID, ItemQty, ItemPrice FROM CartItems WHERE CartID = @ParamCartID AND ProductID = @ParamProductID", conn); // Test, use cart table when card is tied to an account
-            getCartItem.Parameters.AddWithValue("@ParamProductID", productID);
+            SqlCommand getCartItem = new SqlCommand("SELECT Id, ProductID, CartID, ItemQty, ItemPrice FROM CartItems WHERE CartID = @ParamCartID AND ProductID = @ParamProductID", conn);
             getCartItem.Parameters.AddWithValue("@ParamCartID", cartID);
             var cartItem = getCartItem.ExecuteReader();
             cartItem.Read();
@@ -136,7 +135,7 @@ namespace DejaBrew
             SqlCommand checkoutCart = new SqlCommand("INSERT INTO Orders(CartID, OrderTotal, CompletionDate)" +
                     "SELECT Id, CartTotal, @ParamCompletion FROM ShoppingCarts WHERE Id = @ParamCartID;" +
                     "INSERT INTO OrderItems(Id, ProductID, OrderID, ItemQty, ItemPrice)" +
-                    "SELECT CartItems.Id, ProductID, Orders.Id, ItemQty, ItemPrice FROM CartItems LEFT JOIN Orders ON CartItems.CartID = Orders.CartID WHERE Orders.CartID = @ParamCartID;" +
+                    "SELECT CartItems.Id, ProductID, Orders.Id, ItemQty, ItemPrice FROM CartItems INNER JOIN Orders ON Orders.CartID = CartItems.CartID WHERE Orders.CartID = @ParamCartID;" +
                     "DELETE CartItems WHERE CartID = @ParamCartID", conn);
                     //"DELETE ShoppingCarts WHERE Id = @ParamCartID", conn);
             checkoutCart.Parameters.AddWithValue("@ParamCartID", cartID);
