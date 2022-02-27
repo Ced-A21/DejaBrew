@@ -98,7 +98,7 @@
             <span>
                 <asp:TextBox ID="TBUpProdPrice" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="VLDUpProdPrice" runat="server" ErrorMessage="Product Price is required" Display="Dynamic" ValidationGroup="VLDUpdateProd" ControlToValidate="TBUpProdPrice" ForeColor="Red"></asp:RequiredFieldValidator>
-                <asp:RangeValidator ID="VLDUpProdPrice1" runat="server" ErrorMessage="5 to 10,000 only" ControlToValidate="TBUpProdPrice" Display="Dynamic" Type="Currency" ValidationGroup="VLDUpdateProd" MaximumValue="10000" MinimumValue="5" ForeColor="Red"></asp:RangeValidator>
+                <asp:RangeValidator ID="VLDUpProdPrice1" runat="server" ErrorMessage="5 to 10,000 only; Up to 2 decimal places" ControlToValidate="TBUpProdPrice" Display="Dynamic" Type="Currency" ValidationGroup="VLDUpdateProd" MaximumValue="10000" MinimumValue="5" ForeColor="Red"></asp:RangeValidator>
             </span>
 
             <label class="form-label">Product Status </label>
