@@ -102,6 +102,10 @@ namespace DejaBrew
             getTotal.Parameters.AddWithValue("@ParamCartID", cartID);
             decimal? total = decimal.Zero;
             total = getTotal.ExecuteScalar() as decimal?;
+            SqlCommand setTotal = new SqlCommand("UPDATE ShoppingCarts SET CartTotal = @ParamCartTotal WHERE Id = @ParamCartID", conn);
+            setTotal.Parameters.AddWithValue("@ParamCartTotal", total);
+            setTotal.Parameters.AddWithValue("@ParamCartID", cartID);
+            setTotal.ExecuteNonQuery();
             return total ?? decimal.Zero;
         }
         public int GetStock(string cartItemID)
