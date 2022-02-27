@@ -23,7 +23,7 @@
         </main>
         <section>
             <div class="DelCart">
-                <div class="CoffeeshpDiv" onlick="location.href='Order.aspx'">
+                <div class="CoffeeshpDiv" onclick="location.href='Order.aspx'">
                     <img class="CoffeeShp" src="Images/coffeeshop.jpg" />
                 </div>
                 <div class="CoffeeshpDiv1" onclick="location.href='Cart.aspx'">

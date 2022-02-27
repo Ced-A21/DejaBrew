@@ -646,3 +646,56 @@ footer li{
     width: 60vh;
     padding-bottom: 40px;
 }
+
+.AccBtn {
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 35px;
+    width: 15vh;
+}
+.AccBtn:hover {
+    color: #FF8303;
+    text-decoration:underline;
+    cursor:pointer;
+}
+
+/*----------------------------------Order aspx css styles----------------------------------*/
+
+.OrderDiv{
+    margin:auto;
+    display:flex;
+    justify-content:center;
+}
+.OrderHeader {
+    padding-top: 20px;
+    font-size: 2rem;
+    font-family: 'Ultra', sans-serif;
+    color: white;
+    background-color: black;
+}
+.HeaderDiv {
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    width: 200vh;
+    background-color: black;
+}
+.InnerStats {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.IDQuantLoc {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30vh;
+    padding-top: 50px;
+}
+.OrderStats {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+}
