@@ -14,7 +14,7 @@ namespace DejaBrew
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+           
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -173,7 +173,7 @@ namespace DejaBrew
             TextBox11.Text = "";
             TextBox12.Text = "";
             TextBox17.Text = "";
-
+            TextBox19.Text = "";
         }
 
         protected void GridView4_SelectedIndexChanged(object sender, EventArgs e)
@@ -187,6 +187,20 @@ namespace DejaBrew
             TextBox7.Text = gr.Cells[6].Text;
         }
 
-       
+        protected void Button18_Click(object sender, EventArgs e)
+        {
+            Panel1.Visible = false;
+            Panel2.Visible = false;
+            Panel5.Visible = true;
+
+
+            TextBox19.Text = "0";
+            for (int i = 0; i < GridView5.Rows.Count; i++)
+            {
+
+                TextBox19.Text = Convert.ToString(decimal.Parse(TextBox19.Text) + decimal.Parse(GridView5.Rows[i].Cells[1].Text.ToString()));
+
+            }
+        }
     }
 }
