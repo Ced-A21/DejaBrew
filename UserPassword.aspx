@@ -31,8 +31,6 @@
             </asp:UpdatePanel>
 
 
-
-
             <div class="input-lbl">
                 New Password
                 <asp:RequiredFieldValidator ID="rfd_newpass" runat="server" ErrorMessage="*" ControlToValidate="newpass" ForeColor="Red"></asp:RequiredFieldValidator>

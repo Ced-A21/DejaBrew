@@ -109,5 +109,11 @@ namespace DejaBrew
         {
             Response.Redirect("UserPassword.aspx");
         }
+
+        protected void Signout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("Home.aspx");
+        }
     }
 }
