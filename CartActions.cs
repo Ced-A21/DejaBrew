@@ -33,6 +33,7 @@ namespace DejaBrew
             conn.Open();
             SqlCommand getCartItem = new SqlCommand("SELECT Id, ProductID, CartID, ItemQty, ItemPrice FROM CartItems WHERE CartID = @ParamCartID AND ProductID = @ParamProductID", conn);
             getCartItem.Parameters.AddWithValue("@ParamCartID", cartID);
+            getCartItem.Parameters.AddWithValue(@"ParamProductID", productID);
             var cartItem = getCartItem.ExecuteReader();
             cartItem.Read();
 
