@@ -35,8 +35,9 @@ namespace DejaBrew
         private void BindGrid()
         {
 
-            using (SqlCommand cmd = new SqlCommand("SELECT CartID as 'Order ID', OrderTotal, CompletionDate, DeliveryDate, DeliveryStatus FROM Orders"))
+            using (SqlCommand cmd = new SqlCommand("SELECT Id as 'Order ID', OrderTotal as 'Total Price', CompletionDate as 'Date Ordered', DeliveryDate as 'Date Delivered', DeliveryStatus as 'Status' FROM Orders  WHERE Orders.CartID = @ParamCurrentCart"))
             {
+                cmd.Parameters.AddWithValue("@ParamCurrentCart", HttpContext.Current.Session["userid"].ToString());
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
                     cmd.Connection = conn;
@@ -46,7 +47,7 @@ namespace DejaBrew
                         sda.Fill(dt);
                         GridOrder.DataSource = dt;
                         GridOrder.DataBind();
-                        
+
                     }
                 }
             }

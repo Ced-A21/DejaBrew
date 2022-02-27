@@ -40,8 +40,8 @@
                 </li>
             </ul>
             <div class="sign-in">
-                 <button id="BtnCart" runat="server" onserverclick="BtnCart_ServerClick">
-                    <i class="fa-solid fa-cart-shopping"></i>
+                 <button id="BtnCart" runat="server" onserverclick="BtnCart_ServerClick" class="CartBtn">
+                    <i class="fa-solid fa-cart-shopping fa-sm"></i>
                 </button>
                 <asp:Button CssClass="AccBtn" ID="account_btn" runat="server" OnClick="account_btn_Click" Text="Account"></asp:Button>
             </div>  
