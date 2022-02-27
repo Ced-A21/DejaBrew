@@ -45,8 +45,12 @@
             width: 607px;
             height: 64px;
         }
-        .auto-style10 {
-            height: 177px;
+        .auto-style11 {
+            width: 420px;
+            height: 36px;
+        }
+        .auto-style12 {
+            height: 36px;
         }
     </style>
 </asp:Content>
@@ -58,12 +62,13 @@
 
     <table class="AdminColDiv">
         <tr>
-            <td colspan="2" style="font-size: x-large; font-weight: bold; color: #000000">ORDER DETAILS</td>
+            <td colspan="2" style="font-size: x-large; font-weight: bold; color: #000000; font-family: 'Franklin Gothic Heavy';">ORDER DETAILS</td>
         </tr>
         <tr>
             <td class="auto-style3">ID</td>
             <td class="auto-style1">
                 <asp:TextBox ID="TextBox2" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>
         <tr>
@@ -104,6 +109,57 @@
         </tr>
         <tr>
             <td colspan="2">
+                <asp:Panel ID="Panel4" runat="server">
+                </asp:Panel>
+                <asp:GridView ID="GridView4" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView4_SelectedIndexChanged">
+                    <Columns>
+                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
+                        <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                        <asp:BoundField DataField="OrderTotal" HeaderText="OrderTotal" SortExpression="OrderTotal" />
+                        <asp:BoundField DataField="CompletionDate" HeaderText="CompletionDate" SortExpression="CompletionDate" />
+                        <asp:BoundField DataField="DeliveryDate" HeaderText="DeliveryDate" SortExpression="DeliveryDate" />
+                        <asp:BoundField DataField="DeliveryStatus" HeaderText="DeliveryStatus" SortExpression="DeliveryStatus" />
+                        <asp:BoundField DataField="CartID" HeaderText="CartID" SortExpression="CartID" />
+                    </Columns>
+                </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:DejaBrewDb %>" DeleteCommand="DELETE FROM [Orders] WHERE [Id] = @original_Id AND [OrderTotal] = @original_OrderTotal AND [CompletionDate] = @original_CompletionDate AND (([DeliveryDate] = @original_DeliveryDate) OR ([DeliveryDate] IS NULL AND @original_DeliveryDate IS NULL)) AND [DeliveryStatus] = @original_DeliveryStatus AND (([CartID] = @original_CartID) OR ([CartID] IS NULL AND @original_CartID IS NULL))" InsertCommand="INSERT INTO [Orders] ([OrderTotal], [CompletionDate], [DeliveryDate], [DeliveryStatus], [CartID]) VALUES (@OrderTotal, @CompletionDate, @DeliveryDate, @DeliveryStatus, @CartID)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Orders] ORDER BY [DeliveryStatus], [CompletionDate]" UpdateCommand="UPDATE [Orders] SET [OrderTotal] = @OrderTotal, [CompletionDate] = @CompletionDate, [DeliveryDate] = @DeliveryDate, [DeliveryStatus] = @DeliveryStatus, [CartID] = @CartID WHERE [Id] = @original_Id AND [OrderTotal] = @original_OrderTotal AND [CompletionDate] = @original_CompletionDate AND (([DeliveryDate] = @original_DeliveryDate) OR ([DeliveryDate] IS NULL AND @original_DeliveryDate IS NULL)) AND [DeliveryStatus] = @original_DeliveryStatus AND (([CartID] = @original_CartID) OR ([CartID] IS NULL AND @original_CartID IS NULL))">
+                    <DeleteParameters>
+                        <asp:Parameter Name="original_Id" Type="Int32" />
+                        <asp:Parameter Name="original_OrderTotal" Type="Decimal" />
+                        <asp:Parameter Name="original_CompletionDate" Type="DateTime" />
+                        <asp:Parameter Name="original_DeliveryDate" Type="DateTime" />
+                        <asp:Parameter Name="original_DeliveryStatus" Type="String" />
+                        <asp:Parameter Name="original_CartID" Type="Int32" />
+                    </DeleteParameters>
+                    <InsertParameters>
+                        <asp:Parameter Name="OrderTotal" Type="Decimal" />
+                        <asp:Parameter Name="CompletionDate" Type="DateTime" />
+                        <asp:Parameter Name="DeliveryDate" Type="DateTime" />
+                        <asp:Parameter Name="DeliveryStatus" Type="String" />
+                        <asp:Parameter Name="CartID" Type="Int32" />
+                    </InsertParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="OrderTotal" Type="Decimal" />
+                        <asp:Parameter Name="CompletionDate" Type="DateTime" />
+                        <asp:Parameter Name="DeliveryDate" Type="DateTime" />
+                        <asp:Parameter Name="DeliveryStatus" Type="String" />
+                        <asp:Parameter Name="CartID" Type="Int32" />
+                        <asp:Parameter Name="original_Id" Type="Int32" />
+                        <asp:Parameter Name="original_OrderTotal" Type="Decimal" />
+                        <asp:Parameter Name="original_CompletionDate" Type="DateTime" />
+                        <asp:Parameter Name="original_DeliveryDate" Type="DateTime" />
+                        <asp:Parameter Name="original_DeliveryStatus" Type="String" />
+                        <asp:Parameter Name="original_CartID" Type="Int32" />
+                    </UpdateParameters>
+                </asp:SqlDataSource>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="font-size: x-large; font-weight: bold; color: #000000; font-family: 'Franklin Gothic Heavy';">
                 SALES</td>
         </tr>
         <tr>
@@ -114,41 +170,43 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2" class="auto-style4">
-            </td>
+            <td class="auto-style2">
+                &nbsp;</td>
+            <td class="auto-style6">
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style2">
                 Date</td>
             <td class="auto-style6">
-                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="DeliveryDate" DataValueField="DeliveryDate" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                </asp:DropDownList>
+                <asp:TextBox ID="TextBox15" runat="server" Font-Size="Medium" Width="200px" TextMode="date"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button4" runat="server"  Font-Bold="True" ForeColor="White" Height="27px" Text="GET" Width="100px" class="TotalColBtn"/>
+                <asp:Button ID="Button11" runat="server"  Font-Bold="True" ForeColor="White" Height="27px" Text="GET" Width="100px" class="TotalColBtn" OnClick="Button11_Click"/>
             </td>
         </tr>
         <tr>
             <td class="auto-style5">
                 Daily Sales</td>
             <td class="auto-style7">
-                <asp:TextBox ID="TextBox8" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="TextBox14" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button8" runat="server"  Font-Bold="True" ForeColor="White" Height="27px" Text="TOTAL" Width="100px" class="TotalColBtn" OnClick="Button8_Click"/>
+                <asp:Button ID="Button12" runat="server" OnClick="Button12_Click" Text="TOTAL" BackColor="Black" Font-Bold="True" ForeColor="White" Width="100px" />
             </td>
         </tr>
         <tr>
-            <td class="auto-style4">
-                Total Sale</td>
-            <td class="auto-style7">
-                <asp:TextBox ID="TextBox9" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button5" runat="server"  Font-Bold="True" ForeColor="White" Height="27px" Text="TOTAL" Width="100px" class="TotalColBtn" OnClick="Button5_Click"/>
+            <td colspan="2" class="auto-style4">
             </td>
         </tr>
         <tr>
-            <td class="auto-style5">
+            <td colspan="2" class="auto-style4">
+                <asp:Panel ID="Panel1" runat="server">
+                    <asp:GridView ID="GridView1" runat="server">
+                    </asp:GridView>
+                </asp:Panel>
             </td>
-            <td class="auto-style7">
+        </tr>
+        <tr>
+            <td colspan="2" class="auto-style4">
                 &nbsp;</td>
         </tr>
         <tr>
@@ -164,62 +222,51 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="auto-style11">
                 Monthly Sale</td>
-            <td>
+            <td class="auto-style12">
                 <asp:TextBox ID="TextBox12" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="Button7" runat="server"  Font-Bold="True" ForeColor="White" Height="27px" Text="TOTAL" Width="100px" class="TotalColBtn" OnClick="Button7_Click"/>
-            </td>
+            &nbsp;</td>
         </tr>
         <tr>
             <td colspan="2" class="auto-style4">
             </td>
         </tr>
         <tr>
-            <td colspan="2">
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DejaBrewDb %>" SelectCommand="SELECT DISTINCT [DeliveryDate] FROM [Orders] "></asp:SqlDataSource>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <asp:Panel ID="Panel1" runat="server">
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource2" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
-                        <Columns>
-                            <asp:CommandField ShowSelectButton="True" />
-                            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
-                            <asp:BoundField DataField="OrderTotal" HeaderText="OrderTotal" SortExpression="OrderTotal" DataFormatString="{0:F2}" />
-                            <asp:BoundField DataField="CompletionDate" HeaderText="CompletionDate" SortExpression="CompletionDate" DataFormatString="{0:MM/dd/yyyy}" />
-                            <asp:BoundField DataField="DeliveryDate" HeaderText="DeliveryDate" SortExpression="DeliveryDate" DataFormatString="{0:MM/dd/yyyy}"/>
-                                <asp:BoundField DataField="DeliveryStatus" HeaderText="DeliveryStatus" SortExpression="DeliveryStatus" />
-                            <asp:BoundField DataField="CartID" HeaderText="CartID" SortExpression="CartID" />
-                           
-                        </Columns>
-                    </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:DejaBrewDb %>" SelectCommand="SELECT * FROM [Orders]"></asp:SqlDataSource>
-                </asp:Panel>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" class="auto-style10">
+            <td colspan="2" class="auto-style4">
                 <asp:Panel ID="Panel2" runat="server">
-                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource3">
-                        <Columns>
-                            <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
-                            <asp:BoundField DataField="OrderTotal" HeaderText="OrderTotal" SortExpression="OrderTotal" />
-                            <asp:BoundField DataField="CompletionDate" HeaderText="CompletionDate" SortExpression="CompletionDate" />
-                            <asp:BoundField DataField="DeliveryDate" HeaderText="DeliveryDate" SortExpression="DeliveryDate" />
-                            <asp:BoundField DataField="DeliveryStatus" HeaderText="DeliveryStatus" SortExpression="DeliveryStatus" />
-                            <asp:BoundField DataField="CartID" HeaderText="CartID" SortExpression="CartID" />
-                        </Columns>
+                    <asp:GridView ID="GridView2" runat="server">
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:DejaBrewDb %>" SelectCommand="SELECT * FROM [Orders] WHERE ([DeliveryDate] = @DeliveryDate)">
-                        <SelectParameters>
-                            <asp:ControlParameter ControlID="DropDownList1" Name="DeliveryDate" PropertyName="SelectedValue" Type="DateTime" />
-                        </SelectParameters>
-                    </asp:SqlDataSource>
                 </asp:Panel>
             </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="auto-style4">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                Date</td>
+            <td>
+                <asp:TextBox ID="TextBox16" runat="server" Font-Size="Medium" Width="200px" TextMode="date"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="Button15" runat="server" OnClick="Button15_Click" Text="GET" BackColor="Black" Font-Bold="True" ForeColor="White" Height="27px" Width="100px" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Total Sales</td>
+            <td>
+                <asp:TextBox ID="TextBox17" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="Button16" runat="server" OnClick="Button16_Click" Text="TOTAL" BackColor="Black" Font-Bold="True" ForeColor="White" Height="27px" Width="100px" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                &nbsp;</td>
         </tr>
         <tr>
             <td colspan="2">
@@ -228,14 +275,6 @@
                     </asp:GridView>
                 </asp:Panel>
             </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                &nbsp;</td>
         </tr>
         <tr>
             <td colspan="2">
