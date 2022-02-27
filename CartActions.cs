@@ -33,6 +33,7 @@ namespace DejaBrew
             conn.Open();
             SqlCommand getCartItem = new SqlCommand("SELECT Id, ProductID, CartID, ItemQty, ItemPrice FROM CartItems WHERE CartID = @ParamCartID AND ProductID = @ParamProductID", conn);
             getCartItem.Parameters.AddWithValue("@ParamCartID", cartID);
+            getCartItem.Parameters.AddWithValue(@"ParamProductID", productID);
             var cartItem = getCartItem.ExecuteReader();
             cartItem.Read();
 
@@ -132,15 +133,23 @@ namespace DejaBrew
 
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             conn.Open();
-            SqlCommand checkoutCart = new SqlCommand("INSERT INTO Orders(CartID, OrderTotal, CompletionDate)" +
-                    "SELECT Id, CartTotal, @ParamCompletion FROM ShoppingCarts WHERE Id = @ParamCartID;" +
-                    "INSERT INTO OrderItems(Id, ProductID, OrderID, ItemQty, ItemPrice)" +
-                    "SELECT CartItems.Id, ProductID, Orders.Id, ItemQty, ItemPrice FROM CartItems INNER JOIN Orders ON Orders.CartID = CartItems.CartID WHERE Orders.CartID = @ParamCartID;" +
-                    "DELETE CartItems WHERE CartID = @ParamCartID", conn);
-                    //"DELETE ShoppingCarts WHERE Id = @ParamCartID", conn);
-            checkoutCart.Parameters.AddWithValue("@ParamCartID", cartID);
-            checkoutCart.Parameters.AddWithValue("@ParamCompletion", completionDate);
-            checkoutCart.ExecuteNonQuery();
+            SqlCommand insertIntoOrders = new SqlCommand("INSERT INTO Orders(CartID, OrderTotal, CompletionDate)" +
+                    "SELECT Id, CartTotal, @ParamCompletion FROM ShoppingCarts WHERE Id = @ParamCartID;", conn);
+            insertIntoOrders.Parameters.AddWithValue("@ParamCompletion", completionDate);
+            insertIntoOrders.Parameters.AddWithValue("@ParamCartID", cartID);
+
+            SqlCommand insertIntoOrderItems = new SqlCommand("INSERT INTO OrderItems(Id, ProductID, OrderID, ItemQty, ItemPrice)" +
+                    "SELECT CartItems.Id, CartItems.ProductID, MAX(Orders.Id), CartItems.ItemQty, CartItems.ItemPrice FROM CartItems INNER JOIN Orders ON Orders.CartID = CartItems.CartID GROUP BY CartItems.Id, CartItems.ProductID, CartItems.ItemQty, CartItems.ItemPrice", conn);
+            insertIntoOrderItems.Parameters.AddWithValue("@ParamCartID", cartID);
+
+            SqlCommand deleteCartItems = new SqlCommand("DELETE CartItems WHERE CartID = @ParamCartID", conn);
+            deleteCartItems.Parameters.AddWithValue("@ParamCartID", cartID);
+
+
+            insertIntoOrders.ExecuteNonQuery();
+            insertIntoOrderItems.ExecuteNonQuery();
+            deleteCartItems.ExecuteNonQuery();
+
             conn.Close();
         }
     }
