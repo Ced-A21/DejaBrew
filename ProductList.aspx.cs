@@ -32,12 +32,12 @@ namespace DejaBrew
             }
         }
 
-        protected void AddToCart(object sender, ListViewCommandEventArgs e)
+        protected void AddCartItem(object sender, ListViewCommandEventArgs e)
         {
             if (e.CommandName == "Cart")
             {
                 CartActions shoppingCart = new CartActions();
-                shoppingCart.AddToCart(Convert.ToInt32(e.CommandArgument));
+                shoppingCart.AddCartItem(Convert.ToInt32(e.CommandArgument));
             }
         }
     }

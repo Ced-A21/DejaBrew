@@ -23,7 +23,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="div-center" style="min-height:80vh;">
         <asp:Label ID="CategoryLabel" runat="server" Text="Label" CssClass="label-header" />
-        <asp:ListView ID="ProductListView" runat="server" DataSourceID="DejaBrewDb" RepeatColumns="3" GroupItemCount="3" OnItemCommand="AddToCart">
+        <asp:ListView ID="ProductListView" runat="server" DataSourceID="DejaBrewDb" RepeatColumns="3" GroupItemCount="3" OnItemCommand="AddCartItem">
             <LayoutTemplate>
                 <table width="100%">
                     <tr ID="groupPlaceholder" runat="server">
