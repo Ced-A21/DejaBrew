@@ -43,7 +43,18 @@ namespace DejaBrew
 
                 Session["userid"] = UserID;
                 Session["username"] = Name;
-                Response.Redirect("UserProfile.aspx");
+                SqlCommand addCart = new SqlCommand("INSERT INTO ShoppingCarts(Id, CartTotal)" +
+                    "VALUES(@ParamCartID, 0)", con);
+                addCart.Parameters.AddWithValue("@ParamCartID", UserID);
+                try
+                {
+                    addCart.ExecuteNonQuery();
+                }
+                finally
+                {
+                    Response.Redirect("UserProfile.aspx");
+                }
+
             }
             else
             {

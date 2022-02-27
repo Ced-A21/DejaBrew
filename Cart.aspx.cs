@@ -32,7 +32,7 @@ namespace DejaBrew
         protected void GridCart_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             CartActions shoppingCart = new CartActions();
-            int cartItemID = Convert.ToInt32(GridCart.DataKeys[e.RowIndex].Values[0]);
+            string cartItemID = GridCart.DataKeys[e.RowIndex].Values[0].ToString();
             shoppingCart.RemoveCartItem(cartItemID);
             if (shoppingCart.GetCartItems().HasRows)
             {
@@ -51,7 +51,7 @@ namespace DejaBrew
             CartActions shoppingCart = new CartActions();
             TextBox TBqty = sender as TextBox;
             GridViewRow gvr = TBqty.NamingContainer as GridViewRow;
-            int cartItemID = Convert.ToInt32(GridCart.DataKeys[gvr.RowIndex].Values[0]);
+            string cartItemID = GridCart.DataKeys[gvr.RowIndex].Values[0].ToString();
             decimal price = Convert.ToDecimal(GridCart.DataKeys[gvr.RowIndex].Values[1]);
             int qty = Convert.ToInt32(TBqty.Text);
             shoppingCart.ChangeQuantity(cartItemID, qty, price);
@@ -66,7 +66,7 @@ namespace DejaBrew
             {
                 TextBox tb = e.Row.FindControl("qty") as TextBox;
                 GridViewRow gvr = tb.NamingContainer as GridViewRow;
-                int cartItemID = Convert.ToInt32(GridCart.DataKeys[gvr.RowIndex].Values[0]);
+                string cartItemID = GridCart.DataKeys[gvr.RowIndex].Values[0].ToString();
                 tb.Attributes.Add("min", "1");
                 tb.Attributes.Add("max", shoppingCart.GetStock(cartItemID).ToString());
             }

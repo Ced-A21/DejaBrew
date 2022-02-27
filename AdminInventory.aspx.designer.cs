@@ -15,139 +15,31 @@ namespace DejaBrew
     {
 
         /// <summary>
-        /// BtnIncProdStock control.
+        /// BtnAddStock control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnIncProdStock;
+        protected global::System.Web.UI.WebControls.Button BtnAddStock;
 
         /// <summary>
-        /// DivIncProdStock control.
+        /// DivAddProdStock control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivIncProdStock;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivAddProdStock;
 
         /// <summary>
-        /// TBProdName control.
+        /// GridProdList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBProdName;
-
-        /// <summary>
-        /// VLDProdName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator VLDProdName;
-
-        /// <summary>
-        /// DropNewProdCateg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropNewProdCateg;
-
-        /// <summary>
-        /// TBNewProdPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBNewProdPrice;
-
-        /// <summary>
-        /// VLDProdPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator VLDProdPrice;
-
-        /// <summary>
-        /// VLDProdPrice1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator VLDProdPrice1;
-
-        /// <summary>
-        /// TBNewProdStock control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBNewProdStock;
-
-        /// <summary>
-        /// VLDProdStock control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator VLDProdStock;
-
-        /// <summary>
-        /// BtnSaveNewProd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSaveNewProd;
-
-        /// <summary>
-        /// BtnClearNewProd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnClearNewProd;
-
-        /// <summary>
-        /// BtnUpdateNewProd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnUpdateNewProd;
-
-        /// <summary>
-        /// DivUpdateProd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivUpdateProd;
-
-        /// <summary>
-        /// GridUpProdList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridUpProdList;
+        protected global::System.Web.UI.WebControls.GridView GridProdList;
 
         /// <summary>
         /// DejaBrewDb control.
@@ -159,84 +51,30 @@ namespace DejaBrew
         protected global::System.Web.UI.WebControls.SqlDataSource DejaBrewDb;
 
         /// <summary>
-        /// TBUpProdName control.
+        /// TBStock control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBUpProdName;
+        protected global::System.Web.UI.WebControls.TextBox TBStock;
 
         /// <summary>
-        /// VLDUpProdName control.
+        /// VLDStock control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator VLDUpProdName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator VLDStock;
 
         /// <summary>
-        /// DropProdCateg control.
+        /// BtnAddToStock control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropProdCateg;
-
-        /// <summary>
-        /// TBUpProdPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBUpProdPrice;
-
-        /// <summary>
-        /// VLDUpProdPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator VLDUpProdPrice;
-
-        /// <summary>
-        /// VLDUpProdPrice1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator VLDUpProdPrice1;
-
-        /// <summary>
-        /// ProdStat control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList ProdStat;
-
-        /// <summary>
-        /// BtnUpdateProd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnUpdateProd;
-
-        /// <summary>
-        /// BtnClearUpProd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnClearUpProd;
+        protected global::System.Web.UI.WebControls.Button BtnAddToStock;
     }
 }

@@ -11,21 +11,29 @@ namespace DejaBrew
 {
     public class CartActions
     {
-        public int cartId { get; set; }
+        public string cartID { get; set; }
+        public const string cartSessionID = "cartId";
 
         public string GetCartID()
         {
-            HttpContext.Current.Session["cartID"] = HttpContext.Current.Session["userID"];
-            return HttpContext.Current.Session["cartID"].ToString();
+            if (HttpContext.Current.Session[cartSessionID] == null)
+            {
+                if (!string.IsNullOrEmpty(HttpContext.Current.Session["userid"].ToString()))
+                {
+                    HttpContext.Current.Session[cartSessionID] = HttpContext.Current.Session["userid"];
+                }
+            }
+            return HttpContext.Current.Session[cartSessionID].ToString();
         }
         public void AddCartItem(int productID)
         {
-            cartId = 1; // Test, replace once cart is tied to an account
+            cartID = GetCartID();
 
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             conn.Open();
-            SqlCommand getCartItem = new SqlCommand("SELECT Id, ProductID, CartID, ItemQty, ItemPrice FROM CartItems WHERE CartID = 1 AND ProductID = @ParamProductID", conn); // Test, use cart table when card is tied to an account
+            SqlCommand getCartItem = new SqlCommand("SELECT Id, ProductID, CartID, ItemQty, ItemPrice FROM CartItems WHERE CartID = @ParamCartID AND ProductID = @ParamProductID", conn); // Test, use cart table when card is tied to an account
             getCartItem.Parameters.AddWithValue("@ParamProductID", productID);
+            getCartItem.Parameters.AddWithValue("@ParamCartID", cartID);
             var cartItem = getCartItem.ExecuteReader();
             cartItem.Read();
 
@@ -37,12 +45,13 @@ namespace DejaBrew
             if (!cartItem.HasRows)
             {
                 // Then add cart item
-                SqlCommand addCartItem = new SqlCommand("INSERT INTO CartItems(ProductID, CartID, ItemQty, ItemPrice)" +
-                    "VALUES(@ParamProductId, @ParamCartID, @ParamItemQty, @ParamItemPrice)", conn);
+                SqlCommand addCartItem = new SqlCommand("INSERT INTO CartItems(Id, ProductID, CartID, ItemQty, ItemPrice)" +
+                    "VALUES(@ParamCartItemID, @ParamProductId, @ParamCartID, @ParamItemQty, @ParamItemPrice)", conn);
                 addCartItem.Parameters.AddWithValue("@ParamProductID", productID);
-                addCartItem.Parameters.AddWithValue("@ParamCartID", cartId);
+                addCartItem.Parameters.AddWithValue("@ParamCartID", cartID);
                 addCartItem.Parameters.AddWithValue("@ParamItemQty", 1);
                 addCartItem.Parameters.AddWithValue("@ParamItemPrice", price);
+                addCartItem.Parameters.AddWithValue("@ParamCartItemID", Guid.NewGuid().ToString());
                 addCartItem.ExecuteNonQuery();
             }
             else
@@ -51,15 +60,17 @@ namespace DejaBrew
                 SqlCommand updateQty = new SqlCommand("UPDATE CartItems SET ItemQty = ItemQty + 1 WHERE Id = @ParamId;" +
                     "UPDATE CartItems SET ItemPrice = @ParamPrice * ItemQty WHERE Id = @ParamId;", conn);
                     /*"UPDATE Products SET ProductStock = ProductStock - 1 FROM Products INNER JOIN CartItems ON Products.Id = CartItems.ProductID", conn);*/ // Separate with a semi-colon so the ItemQty update executes first
-                updateQty.Parameters.AddWithValue("@ParamId", Convert.ToInt32(cartItem[0]));
+                updateQty.Parameters.AddWithValue("@ParamId", cartItem[0].ToString());
                 updateQty.Parameters.AddWithValue("ParamPrice", price);
                 updateQty.ExecuteNonQuery();
             }
             conn.Close();
         }
 
-        public void RemoveCartItem(int cartItemID)
+        public void RemoveCartItem(string cartItemID)
         {
+            cartID = GetCartID();
+
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             conn.Open();
             SqlCommand removeCartItem = new SqlCommand("DELETE FROM CartItems WHERE Id = @ParamCartItemID", conn);
@@ -68,7 +79,7 @@ namespace DejaBrew
             conn.Close();
         }
 
-        public void ChangeQuantity(int cartItemID, int qty, decimal price)
+        public void ChangeQuantity(string cartItemID, int qty, decimal price)
         {
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             conn.Open();
@@ -83,15 +94,17 @@ namespace DejaBrew
         }
         public decimal GetCartTotal()
         {
+            cartID = GetCartID();
+
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             conn.Open();
             SqlCommand getTotal = new SqlCommand("SELECT SUM(ItemPrice) FROM CartItems WHERE CartID = @ParamCartID", conn);
-            getTotal.Parameters.AddWithValue("@ParamCartID", 1);
+            getTotal.Parameters.AddWithValue("@ParamCartID", cartID);
             decimal? total = decimal.Zero;
             total = getTotal.ExecuteScalar() as decimal?;
             return total ?? decimal.Zero;
         }
-        public int GetStock(int cartItemID)
+        public int GetStock(string cartItemID)
         {
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             conn.Open();
@@ -102,18 +115,19 @@ namespace DejaBrew
         }
         public SqlDataReader GetCartItems()
         {
-            cartId = 1; // Test, replace once cart is tied to an account
+            cartID = GetCartID();
 
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             conn.Open();
-            SqlCommand getCartItem = new SqlCommand("SELECT CartItems.Id, Products.ProductPrice, Products.ProductName, ItemQty, ItemPrice FROM CartItems INNER JOIN Products ON CartItems.ProductID = Products.Id WHERE CartID = 1", conn); // Test, use cart table when card is tied to an account
+            SqlCommand getCartItem = new SqlCommand("SELECT CartItems.Id, Products.ProductPrice, Products.ProductName, ItemQty, ItemPrice FROM CartItems INNER JOIN Products ON CartItems.ProductID = Products.Id WHERE CartID = @ParamCartID", conn);
+            getCartItem.Parameters.AddWithValue("@ParamCartID", cartID);
             var cartItems = getCartItem.ExecuteReader();
             return cartItems;
         }
 
         public void CheckoutCart()
         {
-            cartId = 1;
+            cartID = GetCartID();
             DateTime myDateTime = DateTime.Now;
             string completionDate = myDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
 
@@ -122,10 +136,10 @@ namespace DejaBrew
             SqlCommand checkoutCart = new SqlCommand("INSERT INTO Orders(CartID, OrderTotal, CompletionDate)" +
                     "SELECT Id, CartTotal, @ParamCompletion FROM ShoppingCarts WHERE Id = @ParamCartID;" +
                     "INSERT INTO OrderItems(Id, ProductID, OrderID, ItemQty, ItemPrice)" +
-                    "SELECT Id, ProductID, CartID, ItemQty, ItemPrice FROM CartItems WHERE CartID = @ParamCartID;" +
-                    "DELETE CartItems WHERE CartID = @ParamCartID;" +
-                    "DELETE ShoppingCarts WHERE Id = @ParamCartID", conn);
-            checkoutCart.Parameters.AddWithValue("@ParamCartID", cartId);
+                    "SELECT CartItems.Id, ProductID, Orders.Id, ItemQty, ItemPrice FROM CartItems LEFT JOIN Orders ON CartItems.CartID = Orders.CartID WHERE Orders.CartID = @ParamCartID;" +
+                    "DELETE CartItems WHERE CartID = @ParamCartID", conn);
+                    //"DELETE ShoppingCarts WHERE Id = @ParamCartID", conn);
+            checkoutCart.Parameters.AddWithValue("@ParamCartID", cartID);
             checkoutCart.Parameters.AddWithValue("@ParamCompletion", completionDate);
             checkoutCart.ExecuteNonQuery();
             conn.Close();
