@@ -28,14 +28,20 @@ namespace DejaBrew
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string find_text = $"select UserEmail, UserPass from Users where UserEmail = '{email.Text.Trim()}' and UserPass = '{pass.Text}'";
-            SqlCommand findcmd = new SqlCommand(find_text, con);
-            SqlDataAdapter sd = new SqlDataAdapter(findcmd);
-            DataTable dt = new DataTable();
-            sd.Fill(dt);
-            if (dt.Rows.Count > 0)
+            string findacc = $"select UserID from Users where UserEmail = '{email.Text.Trim()}' and UserPass = '{pass.Text}'";
+            SqlCommand findacc_cmd = new SqlCommand(findacc, con);
+            string UserID = findacc_cmd.ExecuteScalar() as string;
+
+            if (UserID != null)
             {
-                Response.Redirect("Home.aspx");
+                string findname = $"select UserFname from Users where UserID = '{UserID}'";
+                SqlCommand findname_cmd = new SqlCommand(findname, con);
+                string Name = findname_cmd.ExecuteScalar() as string;
+
+
+                Session["userid"] = UserID;
+                Session["username"] = Name;
+                Response.Redirect("UserProfile.aspx");
             }
             else
             {

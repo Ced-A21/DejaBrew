@@ -43,11 +43,10 @@
                  <a href="Cart.aspx">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
-                <div class="AccountIcon" onclick="location.href='Account.aspx'">
-                    <i class="fa-solid fa-circle-user"></i>
-                    <p class="AccountLabel">Account</p>
+                <div class="AccountIcon">
+                    <asp:Button ID="account_btn" runat="server" OnClick="account_btn_Click" Text="Account"></asp:Button>
                 </div>
-            </div>
+            </div>  
         </nav>
         </div>
         <div>
