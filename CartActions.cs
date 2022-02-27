@@ -3,13 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
 
 namespace DejaBrew
 {
     public class CartActions
     {
         public int cartId { get; set; }
-        public void AddToCart(int productID)
+
+        public string GetCartID()
+        {
+            HttpContext.Current.Session["cartID"] = HttpContext.Current.Session["userID"];
+            return HttpContext.Current.Session["cartID"].ToString();
+        }
+        public void AddCartItem(int productID)
         {
             cartId = 1; // Test, replace once cart is tied to an account
 
