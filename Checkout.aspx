@@ -103,9 +103,15 @@
 
                         <asp:GridView CssClass="CheckoutGrid" ID="GridCheckout" runat="server" AutoGenerateColumns="False" GridLines="None">
                             <Columns>
-                                <asp:boundfield datafield="ItemQty" headertext="Item Quantity" ItemStyle-CssClass="QuantityPadding"/>
-                                <asp:boundfield datafield="ProductName" headertext="Product Name" ItemStyle-CssClass="ProdPadding"/>
-                                <asp:boundfield datafield="ItemPrice" headertext="Price" DataFormatString="{0:F2}" ItemStyle-CssClass="ItemPadding"/>
+                                <asp:boundfield datafield="ItemQty" headertext="Item Quantity" ItemStyle-CssClass="QuantityPadding">
+<ItemStyle CssClass="QuantityPadding"></ItemStyle>
+                                </asp:boundfield>
+                                <asp:boundfield datafield="ProductName" headertext="Product Name" ItemStyle-CssClass="ProdPadding">
+<ItemStyle CssClass="ProdPadding"></ItemStyle>
+                                </asp:boundfield>
+                                <asp:boundfield datafield="ItemPrice" headertext="Price" DataFormatString="{0:F2}" ItemStyle-CssClass="ItemPadding">
+<ItemStyle CssClass="ItemPadding"></ItemStyle>
+                                </asp:boundfield>
                             </Columns>
                         </asp:GridView>
 
@@ -116,7 +122,7 @@
                     </div>
                     <div class="Btns">
                         <asp:Button ID="Button1" runat="server" CssClass="CheckoutBtn" Text="Checkout" OnClick="Button1_Click"/>
-                        <asp:Button ID="Button2" runat="server" CssClass="CancelBtn" Text="Cancel" PostBackUrl="~/Cart.aspx" />
+                        <asp:Button ID="Button2" runat="server" CssClass="CancelBtn" Text="Cancel" CausesValidation="False" OnClick="Button2_Click" />
                     </div>
                 </div>
             </div>
