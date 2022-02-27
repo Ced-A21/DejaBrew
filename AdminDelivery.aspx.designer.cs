@@ -15,6 +15,15 @@ namespace DejaBrew
     {
 
         /// <summary>
+        /// Label_Details control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_Details;
+
+        /// <summary>
         /// Grid_Delivery control.
         /// </summary>
         /// <remarks>
@@ -78,6 +87,24 @@ namespace DejaBrew
         protected global::System.Web.UI.WebControls.Button Button_Update;
 
         /// <summary>
+        /// Button_Quantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_Quantity;
+
+        /// <summary>
+        /// Grid_Quantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Grid_Quantity;
+
+        /// <summary>
         /// Button_Undelivered control.
         /// </summary>
         /// <remarks>
@@ -96,30 +123,12 @@ namespace DejaBrew
         protected global::System.Web.UI.WebControls.GridView Grid_Undelivered;
 
         /// <summary>
-        /// Panel1 control.
+        /// SqlDataDelivery control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
-
-        /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-
-        /// <summary>
-        /// GridView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataDelivery;
     }
 }
