@@ -24,7 +24,13 @@ namespace DejaBrew
         {
             CartActions checkout = new CartActions();
             checkout.CheckoutCart();
-            Response.Redirect("~/Home.aspx");
+            Response.Redirect("~/Order.aspx");
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Cart.aspx");
+        }
+
     }
 }
