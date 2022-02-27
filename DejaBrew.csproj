@@ -81,6 +81,7 @@
     </Content>
     <Content Include="Css\Login_Style.css" />
     <Content Include="Css\Signup_Style.css" />
+    <Content Include="Css\UserProfile_Style.css" />
     <Content Include="Global.asax" />
     <Content Include="DB_Styles.css" />
     <Content Include="Home.aspx" />
@@ -89,6 +90,7 @@
     <Content Include="ProductList.aspx" />
     <Content Include="ProductCategory.aspx" />
     <Content Include="Signup.aspx" />
+    <Content Include="UserProfile.aspx" />
     <Content Include="Web.config" />
     <Content Include="AboutUs.aspx" />
     <Content Include="Cart.aspx" />
@@ -213,6 +215,13 @@
     </Compile>
     <Compile Include="Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfile.aspx.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserProfile.aspx.designer.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
