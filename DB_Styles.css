@@ -647,7 +647,7 @@ footer li{
     padding-bottom: 40px;
 }
 
-.AccBtn {
+.AccBtn, .CartBtn {
     background-color: black;
     color: white;
     border: none;
@@ -656,11 +656,20 @@ footer li{
     border-radius: 35px;
     width: 15vh;
 }
-.AccBtn:hover {
+.CartBtn{
+    width:8vh;
+    margin-right:20px;
+}
+.AccBtn:hover, .CartBtn:hover {
     color: #FF8303;
     text-decoration:underline;
     cursor:pointer;
 }
+.AccBtn{
+    padding:8px;
+}
+
+
 
 /*----------------------------------Order aspx css styles----------------------------------*/
 
