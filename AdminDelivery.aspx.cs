@@ -20,7 +20,7 @@ namespace DejaBrew
         {
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             conn.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE [Orders] SET DeliveryDate = @DeliveryDate WHERE Id = @Id", conn);
+            SqlCommand cmd = new SqlCommand("UPDATE [Orders] SET cast(DeliveryDate as Datetime) = @DeliveryDate WHERE Id = @Id", conn);
             cmd.Parameters.AddWithValue("@Id", Grid_Delivery.SelectedRow.Cells[1].Text);
             cmd.Parameters.AddWithValue("@DeliveryDate", TextBox_Date.Text);
             cmd.ExecuteNonQuery();

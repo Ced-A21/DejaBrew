@@ -7,6 +7,9 @@
         .auto-style2 {
             margin-left: 38px;
         }
+        .auto-style3 {
+            height: 25px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -56,6 +59,61 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#00547E" />
         </asp:GridView>
+        <br />
+        <table class="HomePic">
+            <tr>
+                <td class="auto-style3"></td>
+                <td class="auto-style3"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Panel ID="Panel1" runat="server">
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:DejaBrewDb %>" DeleteCommand="DELETE FROM [Orders] WHERE [Id] = @original_Id AND [OrderTotal] = @original_OrderTotal AND [CompletionDate] = @original_CompletionDate AND (([DeliveryDate] = @original_DeliveryDate) OR ([DeliveryDate] IS NULL AND @original_DeliveryDate IS NULL)) AND [DeliveryStatus] = @original_DeliveryStatus AND (([CartID] = @original_CartID) OR ([CartID] IS NULL AND @original_CartID IS NULL))" InsertCommand="INSERT INTO [Orders] ([OrderTotal], [CompletionDate], [DeliveryDate], [DeliveryStatus], [CartID]) VALUES (@OrderTotal, @CompletionDate, @DeliveryDate, @DeliveryStatus, @CartID)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Orders] ORDER BY [Id]" UpdateCommand="UPDATE [Orders] SET [OrderTotal] = @OrderTotal, [CompletionDate] = @CompletionDate, [DeliveryDate] = @DeliveryDate, [DeliveryStatus] = @DeliveryStatus, [CartID] = @CartID WHERE [Id] = @original_Id AND [OrderTotal] = @original_OrderTotal AND [CompletionDate] = @original_CompletionDate AND (([DeliveryDate] = @original_DeliveryDate) OR ([DeliveryDate] IS NULL AND @original_DeliveryDate IS NULL)) AND [DeliveryStatus] = @original_DeliveryStatus AND (([CartID] = @original_CartID) OR ([CartID] IS NULL AND @original_CartID IS NULL))">
+                            <DeleteParameters>
+                                <asp:Parameter Name="original_Id" Type="Int32" />
+                                <asp:Parameter Name="original_OrderTotal" Type="Decimal" />
+                                <asp:Parameter Name="original_CompletionDate" Type="DateTime" />
+                                <asp:Parameter Name="original_DeliveryDate" Type="DateTime" />
+                                <asp:Parameter Name="original_DeliveryStatus" Type="String" />
+                                <asp:Parameter Name="original_CartID" Type="Int32" />
+                            </DeleteParameters>
+                            <InsertParameters>
+                                <asp:Parameter Name="OrderTotal" Type="Decimal" />
+                                <asp:Parameter Name="CompletionDate" Type="DateTime" />
+                                <asp:Parameter Name="DeliveryDate" Type="DateTime" />
+                                <asp:Parameter Name="DeliveryStatus" Type="String" />
+                                <asp:Parameter Name="CartID" Type="Int32" />
+                            </InsertParameters>
+                            <UpdateParameters>
+                                <asp:Parameter Name="OrderTotal" Type="Decimal" />
+                                <asp:Parameter Name="CompletionDate" Type="DateTime" />
+                                <asp:Parameter Name="DeliveryDate" Type="DateTime" />
+                                <asp:Parameter Name="DeliveryStatus" Type="String" />
+                                <asp:Parameter Name="CartID" Type="Int32" />
+                                <asp:Parameter Name="original_Id" Type="Int32" />
+                                <asp:Parameter Name="original_OrderTotal" Type="Decimal" />
+                                <asp:Parameter Name="original_CompletionDate" Type="DateTime" />
+                                <asp:Parameter Name="original_DeliveryDate" Type="DateTime" />
+                                <asp:Parameter Name="original_DeliveryStatus" Type="String" />
+                                <asp:Parameter Name="original_CartID" Type="Int32" />
+                            </UpdateParameters>
+                        </asp:SqlDataSource>
+                        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1">
+                            <Columns>
+                                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
+                                <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                                <asp:BoundField DataField="OrderTotal" HeaderText="OrderTotal" SortExpression="OrderTotal" />
+                                <asp:BoundField DataField="CompletionDate" HeaderText="CompletionDate" SortExpression="CompletionDate" />
+                                <asp:BoundField DataField="DeliveryDate" HeaderText="DeliveryDate" SortExpression="DeliveryDate" />
+                                <asp:BoundField DataField="DeliveryStatus" HeaderText="DeliveryStatus" SortExpression="DeliveryStatus" />
+                                <asp:BoundField DataField="CartID" HeaderText="CartID" SortExpression="CartID" />
+                            </Columns>
+                        </asp:GridView>
+                    </asp:Panel>
+                </td>
+            </tr>
+        </table>
+        <br />
     <br />
     </center>
 </asp:Content>
