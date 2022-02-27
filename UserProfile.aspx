@@ -43,7 +43,7 @@
 
 
             <div class="button-case">
-                <asp:Button class="button" ID="change_pass" runat="server" Text="Change Password" CausesValidation="False" />
+                <asp:Button class="button" ID="change_pass" runat="server" Text="Change Password" CausesValidation="False" OnClick="change_pass_Click" />
                 <asp:Button class="button" ID="change_save" runat="server" Text="Save Changes" OnClick="change_save_Click" />
             </div>
         </div>

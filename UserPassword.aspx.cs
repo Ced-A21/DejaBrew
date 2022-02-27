@@ -5,13 +5,26 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace DejaBrew
 {
     public partial class UserPassword : System.Web.UI.Page
     {
+        static string conpath = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
+        SqlConnection con = new SqlConnection(conpath);
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
+            }
+            con.Open();
+
             ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         }
         protected void peek(TextBox x, CheckBox box)
@@ -135,7 +148,34 @@ namespace DejaBrew
 
         protected void cancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("UserMyProfile.aspx");
+            Response.Redirect("UserProfile.aspx");
         }
+
+        protected void save_Click(object sender, EventArgs e)
+        {
+            
+                string UserID = (string)Session["userid"];
+
+                string cmd_text = $"select UserPass from Users where UserID = '{UserID}'";
+                SqlCommand findpass_cmd = new SqlCommand(cmd_text, con);
+                string sqlpass = findpass_cmd.ExecuteScalar() as string;
+
+
+                if(sqlpass == pass.Text)
+                {
+                    cmd_text = $"update Users set UserPass = '{newpass.Text}' where UserID = '{UserID}'";
+                    SqlCommand changefname_cmd = new SqlCommand(cmd_text, con);
+                    changefname_cmd.ExecuteNonQuery();
+                    Response.Redirect("userProfile.aspx");
+                }
+                else
+                {
+                    invalid_pass.Visible = true;
+                }
+        }
+
+
+                
+        
     }
 }

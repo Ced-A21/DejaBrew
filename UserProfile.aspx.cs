@@ -105,5 +105,9 @@ namespace DejaBrew
 
         }
 
+        protected void change_pass_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("UserPassword.aspx");
+        }
     }
 }

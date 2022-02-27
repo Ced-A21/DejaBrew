@@ -3,7 +3,7 @@
     <link href="Css/UserPassword_Style.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
     <div class="box1">
 
@@ -85,7 +85,7 @@
 
             <div class="button-case">
                 <div><asp:Button class="button" ID="cancel" runat="server" Text="Cancel" CausesValidation="False" OnClick="cancel_Click" /></div>
-                <div><asp:Button class="button" ID="save" runat="server" Text="Save" /></div>
+                <div><asp:Button class="button" ID="save" runat="server" Text="Save" OnClick="save_Click" /></div>
                 
             </div>
             
