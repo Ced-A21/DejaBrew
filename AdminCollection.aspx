@@ -71,40 +71,40 @@
         <tr>
             <td class="auto-style3">ID</td>
             <td class="auto-style1">
-                <asp:TextBox ID="TextBox2" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="TextBox2" runat="server" Font-Size="Medium" Width="300px" Readonly="true"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>
         <tr>
             <td class="auto-style2">Order Total</td>
             <td class="auto-style6">
-                <asp:TextBox ID="TextBox3" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="TextBox3" runat="server" Font-Size="Medium" Width="300px"  Readonly="true"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="auto-style2">Completion Date</td>
             <td class="auto-style6">
-                <asp:TextBox ID="TextBox4" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="TextBox4" runat="server" Font-Size="Medium" Width="300px"  Readonly="true"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="auto-style2">Delivery Date</td>
             <td class="auto-style6">
-                <asp:TextBox ID="TextBox5" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="TextBox5" runat="server" Font-Size="Medium" Width="300px"  Readonly="true"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="auto-style2">
                 Delivery Status</td>
             <td class="auto-style6">
-                <asp:TextBox ID="TextBox6" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="TextBox6" runat="server" Font-Size="Medium" Width="300px"  Readonly="true"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
         </tr>
         <tr>
             <td class="auto-style2">Cart ID</td>
             <td class="auto-style6">
-                <asp:TextBox ID="TextBox7" runat="server" Font-Size="Medium" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="TextBox7" runat="server" Font-Size="Medium" Width="300px"  Readonly="true"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -206,7 +206,7 @@
             <td class="auto-style5">
                 Daily Sales</td>
             <td class="auto-style7">
-                <asp:TextBox ID="TextBox14" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="TextBox14" runat="server" Font-Size="Medium" Width="200px"  Readonly="true"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="Button12" runat="server" OnClick="Button12_Click" Text="TOTAL" BackColor="Black" Font-Bold="True" ForeColor="White" Width="100px" />
             </td>
@@ -252,7 +252,7 @@
             <td class="auto-style11">
                 Monthly Sale</td>
             <td class="auto-style12">
-                <asp:TextBox ID="TextBox12" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="TextBox12" runat="server" Font-Size="Medium" Width="200px"  Readonly="true"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="Button7" runat="server"  Font-Bold="True" ForeColor="White" Height="27px" Text="TOTAL" Width="100px" class="TotalColBtn" OnClick="Button7_Click"/>
             &nbsp;</td>
@@ -282,7 +282,7 @@
             <td>
                 Total Sales</td>
             <td class="auto-style6">
-                <asp:TextBox ID="TextBox17" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="TextBox17" runat="server" Font-Size="Medium" Width="200px"  Readonly="true"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="Button16" runat="server" OnClick="Button16_Click" Text="TOTAL" BackColor="Black" Font-Bold="True" ForeColor="White" Height="27px" Width="100px" />
             </td>
@@ -311,7 +311,7 @@
             <td>
                 Amount</td>
             <td class="auto-style6">
-                <asp:TextBox ID="TextBox19" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                <asp:TextBox ID="TextBox19" runat="server" Font-Size="Medium" Width="200px"  Readonly="true"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="Button18" runat="server" BackColor="Black" Font-Bold="True" ForeColor="White" OnClick="Button18_Click" Text="TOTAL" Width="100px" />
             </td>
