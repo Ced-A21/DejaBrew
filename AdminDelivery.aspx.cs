@@ -27,14 +27,16 @@ namespace DejaBrew
         protected void Grid_Delivery_SelectedIndexChanged(object sender, EventArgs e)
         {
             TextBox_ID.Text = Grid_Delivery.SelectedRow.Cells[1].Text;
+            
         }
-
+        
         protected void Rewrite(object sender)
         {
             Button rewrite = sender as Button;
             if (rewrite.ID == "Button_Update")
             {
                 TextBox_ID.Text = Grid_Delivery.SelectedRow.Cells[1].Text;
+                TextBox_Date.Text = "";
             }
         }
 
