@@ -62,6 +62,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -80,6 +81,7 @@
     </Content>
     <Content Include="Css\Login_Style.css" />
     <Content Include="Css\Signup_Style.css" />
+    <Content Include="Css\UserPassword_Style.css" />
     <Content Include="Css\UserProfile_Style.css" />
     <Content Include="Global.asax" />
     <Content Include="DB_Styles.css" />
@@ -89,6 +91,7 @@
     <Content Include="ProductList.aspx" />
     <Content Include="ProductCategory.aspx" />
     <Content Include="Signup.aspx" />
+    <Content Include="UserPassword.aspx" />
     <Content Include="UserProfile.aspx" />
     <Content Include="Web.config" />
     <Content Include="AboutUs.aspx" />
@@ -207,6 +210,13 @@
     </Compile>
     <Compile Include="Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPassword.aspx.cs">
+      <DependentUpon>UserPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPassword.aspx.designer.cs">
+      <DependentUpon>UserPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserProfile.aspx.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>

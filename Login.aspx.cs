@@ -26,6 +26,8 @@ namespace DejaBrew
             ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         }
 
+        
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             string findacc = $"select UserID from Users where UserEmail = '{email.Text.Trim()}' and UserPass = '{pass.Text}'";
@@ -49,6 +51,7 @@ namespace DejaBrew
                 error_text2.Visible = true;
             }
         }
+
 
         protected void peek(TextBox x, CheckBox box)
         {
