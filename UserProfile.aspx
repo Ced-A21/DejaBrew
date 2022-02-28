@@ -49,7 +49,7 @@
 
             <div>
                 <asp:Button class="signout-btn" ID="Signout" runat="server" Text="Signout" CausesValidation="False" OnClick="Signout_Click" />
-                <asp:Button class="signout-btn" ID="Deactivate" runat="server" Text="Deactivate Account" CausesValidation="False" OnClick="Deactivate_Click" />
+                <asp:Button class="signout-btn" ID="Deactivate" runat="server" Text="Delete Account" CausesValidation="False" OnClick="Deactivate_Click" />
             </div>
 
         </div>
