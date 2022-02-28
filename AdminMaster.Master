@@ -29,9 +29,6 @@
                         <a href="AdminProduct.aspx">Product Manager</a>
                     </li>
                     <li>
-                        <a href="AdminOrder.aspx">Order Manager</a>
-                    </li>
-                    <li>
                         <a href="AdminCollection.aspx">Collection Manager</a>
                     </li>
                     <li>

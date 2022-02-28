@@ -15,26 +15,34 @@ namespace DejaBrew
         SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (conn.State == ConnectionState.Open)
+            if(Session["userid"] == null)
             {
-                conn.Close();
+                Response.Redirect("Login.aspx");
             }
-            conn.Open();
-
-            if (!IsPostBack)
+            else
             {
-                if (!this.IsPostBack)
+                if (conn.State == ConnectionState.Open)
                 {
-                    this.BindGrid();
+                    conn.Close();
                 }
-          
+                conn.Open();
+
+                if (!IsPostBack)
+                {
+                    if (!this.IsPostBack)
+                    {
+                        this.BindGrid();
+                    }
+
+                }
+
             }
+            
 
         }
 
         private void BindGrid()
         {
-
             using (SqlCommand cmd = new SqlCommand("SELECT Id as 'Order ID', OrderTotal as 'Total Price', CompletionDate as 'Date Ordered', DeliveryDate as 'Date Delivered', DeliveryStatus as 'Status' FROM Orders  WHERE Orders.CartID = @ParamCurrentCart"))
             {
                 cmd.Parameters.AddWithValue("@ParamCurrentCart", HttpContext.Current.Session["userid"].ToString());
