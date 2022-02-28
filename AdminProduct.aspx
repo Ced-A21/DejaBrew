@@ -54,6 +54,11 @@
                 <asp:RequiredFieldValidator ID="VLDProdStock" runat="server" ErrorMessage="Product Stock is required" ValidationGroup="VLDNewProd" Display="Dynamic" ControlToValidate="TBNewProdStock" ForeColor="Red"></asp:RequiredFieldValidator>
             </span>
 
+            <label class="form-label">Product Image </label>
+            <span>
+                <asp:TextBox ID="TBNewImage" runat="server" ValidationGroup="VLDNewProd"></asp:TextBox>
+            </span>
+
             <asp:Button ID="BtnSaveNewProd" runat="server" Text="Save New Product" ValidationGroup="VLDNewProd" OnClick="BtnSaveNewProd_Click" />
             <asp:Button ID="BtnClearNewProd" runat="server" Text="Clear Product Information" OnClick="BtnClearNewProd_Click" />
         </div>
@@ -107,6 +112,11 @@
                     <asp:ListItem Value="Enabled">Enabled</asp:ListItem>
                     <asp:ListItem Value="Disabled">Disabled</asp:ListItem>
                 </asp:RadioButtonList>
+            </span>
+
+            <label class="form-label">Product Image </label>
+            <span>
+                <asp:TextBox ID="TBUpProdImage" runat="server" ValidationGroup="VLDUpdateProd"></asp:TextBox>
             </span>
 
             <asp:Button ID="BtnUpdateProd" runat="server" Text="Update Product Information" ValidationGroup="VLDUpdateProd" OnClick="BtnUpdateProd_Click" />

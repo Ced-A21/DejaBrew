@@ -39,12 +39,13 @@ namespace DejaBrew
         {
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             conn.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO [Products](ProductName, ProductCategory, ProductPrice, ProductStock) " +
-                "VALUES(@ParamName, @ParamCateg, @ParamPrice, @ParamStock)", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO [Products](ProductName, ProductCategory, ProductPrice, ProductStock, ProductImage) " +
+                "VALUES(@ParamName, @ParamCateg, @ParamPrice, @ParamStock, @ParamImage)", conn);
             cmd.Parameters.AddWithValue("@ParamName", TBProdName.Text);
             cmd.Parameters.AddWithValue("@ParamCateg", DropNewProdCateg.SelectedValue);
             cmd.Parameters.AddWithValue("@ParamPrice", decimal.Parse(TBNewProdPrice.Text));
             cmd.Parameters.AddWithValue("@ParamStock", int.Parse(TBNewProdStock.Text));
+            cmd.Parameters.AddWithValue("@ParamImage", TBNewImage.Text);
             cmd.ExecuteNonQuery();
             conn.Close();
             GridUpProdList.DataBind();
@@ -60,6 +61,7 @@ namespace DejaBrew
                 DropNewProdCateg.SelectedIndex = 0;
                 TBNewProdPrice.Text = "";
                 TBNewProdStock.Text = "";
+                TBNewImage.Text = "";
             }
             else if (clickedButton.ID == "BtnUpdateProd" || clickedButton.ID == "BtnClearUpProd")
             {
@@ -67,6 +69,7 @@ namespace DejaBrew
                 DropProdCateg.SelectedValue = GridUpProdList.SelectedRow.Cells[3].Text;
                 TBUpProdPrice.Text = GridUpProdList.SelectedRow.Cells[4].Text;
                 ProdStat.SelectedValue = GridUpProdList.SelectedRow.Cells[6].Text;
+                TBUpProdImage.Text = GridUpProdList.SelectedRow.Cells[7].Text;
             }
         }
 
@@ -76,18 +79,20 @@ namespace DejaBrew
             DropProdCateg.SelectedValue = GridUpProdList.SelectedRow.Cells[3].Text;
             TBUpProdPrice.Text = GridUpProdList.SelectedRow.Cells[4].Text;
             ProdStat.SelectedValue = GridUpProdList.SelectedRow.Cells[6].Text;
+            TBUpProdImage.Text = GridUpProdList.SelectedRow.Cells[7].Text;
         }
 
         protected void BtnUpdateProd_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             conn.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE [Products] SET ProductName = @ParamName, ProductCategory = @ParamCateg, ProductPrice = @ParamPrice, ProductStatus = @ParamStatus WHERE Id = @Id", conn);
+            SqlCommand cmd = new SqlCommand("UPDATE [Products] SET ProductName = @ParamName, ProductCategory = @ParamCateg, ProductPrice = @ParamPrice, ProductStatus = @ParamStatus, ProductImage = @ParamImage WHERE Id = @Id", conn);
             cmd.Parameters.AddWithValue("@Id", GridUpProdList.SelectedRow.Cells[1].Text);
             cmd.Parameters.AddWithValue("@ParamName", TBUpProdName.Text);
             cmd.Parameters.AddWithValue("@ParamCateg", DropProdCateg.SelectedValue);
             cmd.Parameters.AddWithValue("@ParamPrice", decimal.Parse(TBUpProdPrice.Text));
             cmd.Parameters.AddWithValue("@ParamStatus", ProdStat.SelectedValue);
+            cmd.Parameters.AddWithValue("@ParamImage", TBUpProdImage.Text);
             cmd.ExecuteNonQuery();
             conn.Close();
             GridUpProdList.DataBind();
