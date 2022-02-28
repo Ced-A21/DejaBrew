@@ -106,6 +106,7 @@ namespace DejaBrew
             setTotal.Parameters.AddWithValue("@ParamCartTotal", total);
             setTotal.Parameters.AddWithValue("@ParamCartID", cartID);
             setTotal.ExecuteNonQuery();
+            conn.Close();
             return total ?? decimal.Zero;
         }
         public int GetStock(string cartItemID)
@@ -115,6 +116,7 @@ namespace DejaBrew
             SqlCommand getStock = new SqlCommand("SELECT ProductStock FROM Products JOIN CartItems ON Products.Id = CartItems.ProductID WHERE CartItems.Id = @ParamCartItemID", conn);
             getStock.Parameters.AddWithValue("@ParamCartItemID", cartItemID);
             int stock = (int)getStock.ExecuteScalar();
+            conn.Close();
             return stock;
         }
         public SqlDataReader GetCartItems()
