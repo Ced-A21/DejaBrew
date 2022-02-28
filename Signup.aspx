@@ -85,7 +85,7 @@
                         <asp:RequiredFieldValidator class="rfd" ID="rfd_mobile" runat="server" ErrorMessage="*" ControlToValidate="mobile"></asp:RequiredFieldValidator>
                     </div>
                     <div><asp:TextBox class="textbox" ID="mobile" runat="server" placeholder="906******5" MaxLength="10"></asp:TextBox></div>
-                    <div><asp:RangeValidator class="rfd_text rfd" ID="rfd_mobile_range" runat="server" ErrorMessage="Must be 10 digits" ControlToValidate="mobile" MaximumValue="9999999999" MinimumValue="0000000000"></asp:RangeValidator></div>
+                    <div><asp:RangeValidator class="rfd_text rfd" ID="rfd_mobile_range" runat="server" ErrorMessage="Invalid mobile format" ControlToValidate="mobile" MaximumValue="9999999999" MinimumValue="7777777777"></asp:RangeValidator></div>
                     <div class="lbl_input">
                         Confirm Password
                         <asp:RequiredFieldValidator class="rfd" ID="rfd_conpass" runat="server" ErrorMessage="*" ControlToValidate="conpass"></asp:RequiredFieldValidator>
