@@ -16,12 +16,19 @@ namespace DejaBrew
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
             conn.Open();
             SqlCommand cmd = new SqlCommand("UPDATE [Orders] SET DeliveryDate = @DeliveryDate WHERE Id = @Id", conn);
-            cmd.Parameters.AddWithValue("@Id", Grid_Delivery.SelectedRow.Cells[1].Text);
-            cmd.Parameters.AddWithValue("@DeliveryDate", TextBox_Date.Text);
-            cmd.ExecuteNonQuery();
-            conn.Close();
-            Grid_Delivery.DataBind();
-            Rewrite(sender);
+            if (Grid_Delivery.SelectedRow ==null && TextBox_Date.Text == "")
+            {
+                Response.Write("<script>alert('Select an ID and Date first before updating.')</script>");
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@Id", Grid_Delivery.SelectedRow.Cells[1].Text);
+                cmd.Parameters.AddWithValue("@DeliveryDate", TextBox_Date.Text);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                Grid_Delivery.DataBind();
+                Rewrite(sender);
+            }
         }
 
         protected void Grid_Delivery_SelectedIndexChanged(object sender, EventArgs e)

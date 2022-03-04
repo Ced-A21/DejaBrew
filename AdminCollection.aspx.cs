@@ -115,31 +115,6 @@ namespace DejaBrew
             }
         }
 
-        //protected void Button15_Click(object sender, EventArgs e)
-        //{
-        //    Panel1.Visible = false;
-        //    Panel2.Visible = false;
-        //    Panel3.Visible = true;
-
-        //    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DejaBrew.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework");
-        //    string sqlquery = "SELECT * from Orders where cast(DeliveryDate as Date) = '" + TextBox16.Text + "'";
-        //    SqlCommand sqlcomm = new SqlCommand(sqlquery, con);
-        //    con.Open();
-        //    SqlDataAdapter sda = new SqlDataAdapter(sqlcomm);
-        //    DataTable dt = new DataTable();
-        //    sda.Fill(dt);
-        //    SqlDataReader sdr = sqlcomm.ExecuteReader();
-        //    if (sdr.Read())
-        //    {
-        //        GridView3.DataSource = dt;
-        //        GridView3.DataBind();
-        //    }
-        //    else
-        //    {
-
-        //    }
-        //    con.Close();
-        //}
 
         protected void Button16_Click(object sender, EventArgs e)
         {
